@@ -1,0 +1,12 @@
+﻿header#header.header
+	.wrap
+		.header-logo
+			img(src="")
+		.header-table
+			ul.row
+				- var items = ["О FINDYOURCAR", "Как мы работаем", "Особенности", "Стоимость", "Специалист на выезд", "Отзывы"]
+				- each item in items
+					li.cell
+						a(href="##{item}") #{item}
+		.header-btn
+			a.btn.btn-red(href="#") Пообщаться с экспертом

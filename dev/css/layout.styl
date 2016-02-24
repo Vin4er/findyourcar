@@ -4,72 +4,107 @@
 	margin: 0
 	padding 0
 	box-sizing: border-box
-	font-family: Tahoma
 	letter-spacing 0px
 	outline 0
-	font-size 16px
 	box-sizing border-box
 	letter-spacing 0px
-	color #111111
+	font-family: 'PT Sans', sans-serif;
 
+
+@import  "./layout/inputs.styl"
 
 .wrap
-	min-width 1020px
-	max-width 1020px
+	min-width 300px
+	max-width 1024px
+	padding-left: 20px;
+	padding-right: 20px;
 	width 100%
-	height 100vh
 	position relative
 	margin: auto
-	text-align center
-#index
 
-.flex
-	display: flex;
-	height 100vh
-	justify-content: center
-	align-items: center
-	counter-reset: flexitem
-	&-boubles
-		text-align center
-		.clone
-			position absolute
-			background: rgba(0, 0, 255, 0.4) !important
-			border: 1px solid transparent  !important
-			color rgba(255, 255, 255, 1) !important
-			width: 50px;
-			height: 50px;
-			line-height 48px
-			margin-left -3px
-			margin-top -5px
+
+.block-5
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #000000);
+	padding-top: 80px
+	padding-bottom: 120px
+	white-space: nowrap 
+	.wrap
+		position: relative
+	&-text
+		display: inline-block
+		vertical-align: top
+		width: 60%
+		white-space: normal
+		line-height: 1.3
+		color: #b5b5b5;
+	&-price
+		margin-top: -160px
+		white-space: normal
+		display: inline-block
+		vertical-align: top
+		width: 40%
+		text-align: center
+		&-big
+			font-size: 144px;
+			line-height: 1.0;
+			color: #ffffff;
+			font-weight: bold
+		&-text
+			padding-top: 14px
+			text-align: center
+			font-size: 24px;
+			line-height: 1.0;
+			color: #b5b5b5;
+		&-btn
+			padding-top: 24px
+			.btn
+				margin: auto
+				width: 300px
+	.h1
+		text-align: left
+		padding-right: 4%
+		white-space: normal
+		&-line
 			&:after
-				content: ''
-				display: none
-				color: rgba(0,0,0,0)
-	&-console
-		position absolute
-		left 0
-		top 0
-		padding: 20px;
-		text-align left
-		opacity: .3;
-		.flex-info-items, .flex-info-items b
-			font-size: 14px;
-			line-height 16px
-	&-item
-		width: 40px;
-		margin-left 2px
-		margin-right 2px
-		border-radius: 50%
-		height: 40px;
-		border: 1px solid rgba(0, 0, 255, 0.4)
-		line-height 38px
-		transition-duration: .100s
-		transition-property: background
-		&.sort-completed
-			transition-property: border
-			border: 1px solid rgba(0, 255, 55, 0.38)
-			background: rgba(0, 255, 55, 0.38)
-			color rgba(0, 0, 255, 0.4)
-		&.sort-class
-			background: rgba(0, 0, 255, 0)
-			color rgba(0, 0, 255, 0)
+				width: 220px
+
+
+
+.block-6
+	background: white
+	padding-top: 60px
+	padding-bottom: 70px
+	&-title
+		text-align: left
+		max-width: 60%
+	&-btn
+		padding-top: 40px
+		width: 300px
+	&-text
+		text-align: left
+		max-width: 60%
+		p
+			font-size: 24px
+			line-height: 1.3
+			color: #b5b5b5
+			margin-bottom: 40px
+
+
+
+
+.block-8
+	padding-top: 150px
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), #000000);
+	position: relative
+	.h1
+		padding-bottom: 30px
+	&-btns
+		width: 300px
+		margin: auto
+		text-align center
+		a
+			margin-bottom: 30px
+		.link
+			font-size: 11px;
+			margin-top 100px
+			margin-bottom 30px

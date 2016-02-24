@@ -67,6 +67,7 @@ gulp.task('js', function() {
 			"./dev/js/lib/backbone/underscore.js",
 			"./dev/js/lib/backbone/backbone.js",
 			"./dev/js/bbapp/init-helpers.js",
+			"./dev/js/bbapp/routes/main-router.js",
 			"./dev/js/bbapp/models/main-model.js",
 			"./dev/js/bbapp/view/main-view.js",
 			"./dev/js/bbapp/init-bbapp.js",
