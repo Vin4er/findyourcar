@@ -122,6 +122,10 @@
 	&-title
 		text-align: left
 		max-width: 60%
+		@media (min-width: 1440px)
+			max-width: 60%
+		@media (max-width: 1440px)
+			max-width: 50%
 		@media (max-width: 768px)
 			max-width: 100%
 			text-align center
@@ -136,7 +140,10 @@
 			text-align center
 	&-text
 		text-align: left
-		max-width: 60%
+		@media (min-width: 1440px)
+			max-width: 60%
+		@media (max-width: 1440px)
+			max-width: 50%
 		@media (max-width: 768px)
 			max-width: 100%
 		p
