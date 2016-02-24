@@ -41,7 +41,7 @@
 							"-webkit-transform":"translateY("+ sh +"px)",
 							"-o-transform": 	"translateY("+ sh +"px)",
 							"transform": 		"translateY("+ sh +"px)"
-						})
+						});
 					}
 				});
 			}else{
@@ -61,7 +61,7 @@
 		imgSet: function() {
 			var dpi = window.devicePixelRatio = window.devicePixelRatio || Math.round(window.screen.availWidth / document.documentElement.clientWidth);
 			var dpi_name = dpi>1? ( dpi == 2 ? "@2x" : "@2x" ) :"";
-			var ww = $(window).width();
+			var ww = $(window).outerWidth();
 			var type = ""
 
 			if ( ww >= 1440){

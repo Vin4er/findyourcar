@@ -21,7 +21,14 @@
 	width 100%
 	position relative
 	margin: auto
-
+header
+	position: fixed
+	overflow hidden
+	width: 100%
+	left: 0
+	top: 0
+	display: none
+	z-index: 4
 
 .block-1,
 .block-2,
@@ -42,6 +49,142 @@
 .block-3,
 .block-5
 	overflow: hidden
+
+// @media (max-width: 768px) and (min-width: 500px) 
+// @media (min-width: 1024px)
+// @media (max-width: 1024px) and (min-width: 768px)
+// @media (max-width: 500px) 
+.block-1
+	height 100vh
+	min-height: 610px
+	.wrap
+		padding-bottom: 20px
+	.info-control
+		@media (max-width: 500px)
+			display: none
+		display: block;
+		font-size: 18px;
+		line-height: 1;
+		color: #b5b5b5;
+		text-align: center;
+		margin: auto;
+		width: 150px;
+		position: absolute;
+		bottom: 25px;
+		left: 50%;
+		margin-left: -75px;
+		span
+			opacity: 0.3;
+			display block
+			padding-bottom: 15px
+		img
+			width: 24px;
+			height: 42px;
+			display block
+			margin: auto
+	.btn
+		width: 300px
+		display: block
+		margin: auto
+	p
+		font-size: 24px
+		line-height: 1.3;
+		color: #b5b5b5;
+		max-width: 700px
+		margin: auto
+		padding-bottom: 60px
+		@media (max-width: 1024px)
+			font-size: 18px
+	.h1-line
+		&:after
+			width: 260px
+			margin-left: auto
+			margin-right: auto
+			height 4px
+	.table, .prallax-content
+		height 100vh
+		min-height: 610px
+		width: 100%
+		.cell
+			vertical-align: middle
+			text-align: center
+	.prallax
+		background-position: top center
+		top: 0 !important
+		&-content
+			min-height: 610px
+			height 100vh
+			background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #000000);
+.block-2
+	&-item
+		&-title
+			font-size: 24px;
+			line-height: 1.0;
+			color: #252525;
+			padding-bottom: 15px
+		&-text
+			font-size: 17.4px;
+			line-height: 1.4;
+			color: #b5b5b5;
+		&-img
+			width: 120px
+			display inline-block
+			line-height: 120px
+			height: 120px
+			img
+				max-width 100%
+				vertical-align middle
+				max-height 100%
+		@media (min-width: 1024px)
+			text-align: center
+			vertical-align: top
+			padding-left: 15px
+			padding-right: 15px
+			&-title
+				font-size: 24px;
+				line-height: 1.0;
+				color: #252525;
+				padding-bottom: 15px
+			&-text
+				font-size: 17.4px;
+				line-height: 1.4;
+				color: #b5b5b5;
+		@media (max-width: 1024px) and (min-width: 768px)
+			display: block
+			width: 100%
+			text-align: left
+			&-about
+				padding-left: 170px
+				padding-top: 20px
+				&:after
+					content: ""
+					display inline-block
+					clear: both
+			&-img
+				float: left;
+		@media  (max-width: 768px)
+			display: block
+			width: 100%
+			text-align: left
+			margin-bottom: 20px
+			&-about
+				padding-left: 0px
+				padding-top: 20px
+				text-align: center
+				&:after
+					content: ""
+					display inline-block
+					clear: both
+			&-img
+				display: block
+				margin: auto
+	.wrap
+		padding-top: 60px
+		padding-bottom: 60px
+		.h1
+			text-align: center
+			margin-bottom: 40px
+
 
 .block-3
 	.dtext
@@ -288,7 +431,7 @@
 			margin auto
 			margin-top: 0px
 			width: 100%
-			text-align: center
+			text-align: left
 		@media (min-width: 1440px)
 			font-size: 24px;
 		@media (max-width: 1440px)
@@ -316,10 +459,25 @@
 			line-height: 1.0;
 			color: #ffffff;
 			font-weight: bold
+			white-space nowrap
 			@media (min-width: 1440px)
 				font-size: 144px;
-			@media (max-width: 1440px)
-				font-size: 100px;
+				img
+					width: 197px
+					margin-bottom: -88px
+					margin-left: -50px
+			@media (max-width: 1440px) and (min-width: 768px)
+				font-size: 100px
+				img
+					width: 137px
+					margin-bottom: -61px
+					margin-left: -50px
+			@media (max-width: 768px)
+				font-size: 60px
+				img
+					width: 82px;
+					margin-bottom: -37px;
+					margin-left: -30px;
 		&-text
 			padding-top: 14px
 			text-align: center
@@ -367,17 +525,21 @@
 	&-img
 		float: right;
 		width: 502px;
-		height: 379px;
-		margin-top: -50px
+		margin-top: -60px
+		margin-right: -20px
 		img
 			max-width: 100%
-		@media (min-width: 768px) and (max-width: 1024px)
+			max-height: 100%
+		@media (min-width: 768px) and (max-width: 1050px)
+			margin-top: 20px
 			width: 50%;
+			text-align: center
 		@media (max-width: 768px)
 			margin-top: 0px
 			float none
 			width: auto
 			margin auto
+			text-align: center
 			margin-bottom: 30px
 	&-title
 		text-align: left
@@ -395,6 +557,8 @@
 	&-btn
 		padding-top: 40px
 		width: 300px
+		@media (max-width: 768px)
+			padding-top: 0px
 		@media (max-width: 768px)
 			width: 100%
 			text-align center
@@ -418,6 +582,10 @@
 
 
 
+.block-7
+	height: 256px
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+	overflow: hidden
 .block-8
 	padding-top: 150px
 	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), #000000);
