@@ -108,7 +108,9 @@ gulp.task('fonts', function() { });
 // стпрайты
 gulp.task('sprite', function() { });
 //Копируем изображения и сразу их обновляем
-gulp.task('img', function() {});
+gulp.task('img', function() {
+	gulp.src(path.img.source).pipe(gulp.dest(path.img.destination)); // out place
+});
 
 
 // Watch Task

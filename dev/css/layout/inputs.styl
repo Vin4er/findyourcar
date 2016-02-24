@@ -24,7 +24,26 @@ html
 	width: 25%
 .w20
 	width: 20%
-
+.prallax
+	position: absolute;
+	width: 100%
+	top: -200px
+	bottom: -150px
+	z-index: 1
+	background-repeat: no-repeat
+	background-position: center bottom
+	overflow: hidden
+	img
+		min-width 150%
+		top: -100px
+		left: -25%
+		bottom: -200px
+		width: 100%
+		position absolute
+		display: none
+	&-content
+		position: relative
+		z-index: 2
 .btn
 	height: 38px
 	line-height: 38px
@@ -47,7 +66,7 @@ html
 		height auto
 		line-height normal
 .h1
-	text-align center
+	// text-align center
 	@media (min-width: 1440px)
 		font-size: 48px;
 	@media (max-width: 1440px)
