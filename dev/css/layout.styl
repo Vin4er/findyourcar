@@ -15,7 +15,7 @@
 
 .wrap
 	min-width 300px
-	max-width 1024px
+	max-width 1480px
 	padding-left: 20px;
 	padding-right: 20px;
 	width 100%
@@ -62,10 +62,13 @@
 			display: block
 			margin auto
 			margin-top: 0px
+			float none
+			margin-bottom 20px
 			width: 100%
 			text-align: center
 		white-space: normal
 		display: inline-block
+		float right
 		vertical-align: top
 		width: 40%
 		text-align: center
@@ -97,6 +100,7 @@
 		white-space: normal
 		@media (min-width: 1440px)
 			padding-right: 4%
+			max-width: 1000px
 		@media (max-width: 1440px)
 			padding-right: 10%
 		@media (max-width: 768px)
@@ -119,6 +123,20 @@
 	background: white
 	padding-top: 60px
 	padding-bottom: 70px
+	&-img
+		float: right;
+		width: 502px;
+		height: 379px;
+		background: red;
+		margin-top: -50px
+		@media (min-width: 768px) and (max-width: 1024px)
+			width: 50%;
+		@media (max-width: 768px)
+			margin-top: 0px
+			float none
+			width: auto
+			margin auto
+			margin-bottom: 30px
 	&-title
 		text-align: left
 		max-width: 60%

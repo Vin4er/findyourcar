@@ -22,14 +22,14 @@ html body .ib {
   display: inline-block;
 }
 .table {
-  disaplay: table;
+  display: table;
   table-layout: fixed;
 }
 .row {
-  disaplay: table-row;
+  display: table-row;
 }
 .cell {
-  disaplay: table-cell;
+  display: table-cell;
   vertical-align: center;
 }
 .w100 {
@@ -112,7 +112,7 @@ html body .ib {
 }
 .wrap {
   min-width: 300px;
-  max-width: 1024px;
+  max-width: 1480px;
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
@@ -165,6 +165,7 @@ html body .ib {
 .block-5-price {
   white-space: normal;
   display: inline-block;
+  float: right;
   vertical-align: top;
   width: 40%;
   text-align: center;
@@ -184,6 +185,8 @@ html body .ib {
     display: block;
     margin: auto;
     margin-top: 0px;
+    float: none;
+    margin-bottom: 20px;
     width: 100%;
     text-align: center;
   }
@@ -233,6 +236,7 @@ html body .ib {
 @media (min-width: 1440px) {
   .block-5 .h1 {
     padding-right: 4%;
+    max-width: 1000px;
   }
 }
 @media (max-width: 1440px) {
@@ -261,9 +265,40 @@ html body .ib {
   padding-top: 60px;
   padding-bottom: 70px;
 }
+.block-6-img {
+  float: right;
+  width: 502px;
+  height: 379px;
+  background: #f00;
+  margin-top: -50px;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .block-6-img {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .block-6-img {
+    margin-top: 0px;
+    float: none;
+    width: auto;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+}
 .block-6-title {
   text-align: left;
   max-width: 60%;
+}
+@media (min-width: 1440px) {
+  .block-6-title {
+    max-width: 60%;
+  }
+}
+@media (max-width: 1440px) {
+  .block-6-title {
+    max-width: 50%;
+  }
 }
 @media (max-width: 768px) {
   .block-6-title {
@@ -286,7 +321,16 @@ html body .ib {
 }
 .block-6-text {
   text-align: left;
-  max-width: 60%;
+}
+@media (min-width: 1440px) {
+  .block-6-text {
+    max-width: 60%;
+  }
+}
+@media (max-width: 1440px) {
+  .block-6-text {
+    max-width: 50%;
+  }
 }
 @media (max-width: 768px) {
   .block-6-text {
