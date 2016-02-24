@@ -23,11 +23,16 @@
 	margin: auto
 
 
+// @media screen and (min-width: 600px)
+// 768, 1024, 1440
 .block-5
 	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #000000);
 	padding-top: 80px
 	padding-bottom: 120px
 	white-space: nowrap 
+	@media (max-width: 768px)
+		padding-top: 40px
+		padding-bottom: 40px
 	.wrap
 		position: relative
 	&-text
@@ -37,24 +42,51 @@
 		white-space: normal
 		line-height: 1.3
 		color: #b5b5b5;
+		
+		@media (max-width: 768px)
+			display: block
+			margin auto
+			margin-top: 0px
+			width: 100%
+			text-align: center
+		@media (min-width: 1440px)
+			font-size: 24px;
+		@media (max-width: 1440px)
+			font-size: 18px;
 	&-price
-		margin-top: -160px
+		@media (min-width: 1440px)
+			margin-top: -160px
+		@media (max-width: 1440px)
+			margin-top: -80px
+		@media (max-width: 768px)
+			display: block
+			margin auto
+			margin-top: 0px
+			width: 100%
+			text-align: center
 		white-space: normal
 		display: inline-block
 		vertical-align: top
 		width: 40%
 		text-align: center
 		&-big
-			font-size: 144px;
 			line-height: 1.0;
 			color: #ffffff;
 			font-weight: bold
+			@media (min-width: 1440px)
+				font-size: 144px;
+			@media (max-width: 1440px)
+				font-size: 100px;
 		&-text
 			padding-top: 14px
 			text-align: center
-			font-size: 24px;
 			line-height: 1.0;
 			color: #b5b5b5;
+					
+			@media (min-width: 1440px)
+				font-size: 24px;
+			@media (max-width: 1440px)
+				font-size: 18px;
 		&-btn
 			padding-top: 24px
 			.btn
@@ -62,14 +94,27 @@
 				width: 300px
 	.h1
 		text-align: left
-		padding-right: 4%
 		white-space: normal
+		@media (min-width: 1440px)
+			padding-right: 4%
+		@media (max-width: 1440px)
+			padding-right: 10%
+		@media (max-width: 768px)
+			display: block
+			margin auto
+			padding-right: 0%
+			margin-top: 0px
+			width: 100%
+			text-align: center
+			&-line
+				&:after
+					display: none
 		&-line
 			&:after
 				width: 220px
 
 
-
+// 768, 1024, 1440
 .block-6
 	background: white
 	padding-top: 60px
@@ -77,14 +122,28 @@
 	&-title
 		text-align: left
 		max-width: 60%
+		@media (max-width: 768px)
+			max-width: 100%
+			text-align center
+			&.h1-line
+				&:after
+					display: none
 	&-btn
 		padding-top: 40px
 		width: 300px
+		@media (max-width: 768px)
+			width: 100%
+			text-align center
 	&-text
 		text-align: left
 		max-width: 60%
+		@media (max-width: 768px)
+			max-width: 100%
 		p
-			font-size: 24px
+			@media (min-width: 1440px)
+				font-size: 24px;
+			@media (max-width: 1440px)
+				font-size: 18px;
 			line-height: 1.3
 			color: #b5b5b5
 			margin-bottom: 40px
@@ -96,15 +155,22 @@
 	padding-top: 150px
 	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), #000000);
 	position: relative
+	@media (max-width: 768px)
+		padding-top: 40px
 	.h1
 		padding-bottom: 30px
 	&-btns
 		width: 300px
 		margin: auto
 		text-align center
+		@media (max-width: 768px)
+			width: auto
 		a
 			margin-bottom: 30px
 		.link
 			font-size: 11px;
 			margin-top 100px
 			margin-bottom 30px
+			
+			@media (max-width: 768px)
+				margin-top 40px
