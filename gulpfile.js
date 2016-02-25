@@ -84,6 +84,7 @@ gulp.task('js', function() {
 			"./dev/js/bbapp/init-bbapp.js",
 		])
 		.pipe(concat('bbapp.min.js'))
+		// .pipe(uglify())
 		.pipe(gulp.dest('./public/assets/js'));
 
 });
