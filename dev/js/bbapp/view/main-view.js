@@ -73,13 +73,13 @@
 		 * @page - {string} - строка из события роута
 		 **/
 		scroller: function(page){
-			console.log(page)
 			if(page){
 				$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
 
 				$("header .active").removeClass("active");
 				$("[href=#"+page+"]").addClass('active');
 			}
+			var timer;
 			var f = function(){
 				var 
 					scrollTop = $(window).scrollTop(),
@@ -95,10 +95,18 @@
 						$("[href=#index]").addClass('active');
 					}else{
 						if(  (item.offset().top ) < (scrollTop + wh/2) &&  (item.offset().top) > (scrollTop - wh/2 )){
-							console.log( $("[href=#"+$(this).data('id')+"]") )
 							$("header .active").removeClass("active");
 							$("[href=#"+$(this).data('id')+"]").addClass('active');
-							app.RouterMain.navigate($(this).data('id') , {trigger: false, replace: false});
+							if(timer)clearTimeout(timer)
+							timer = setTimeout(function(){
+								app.RouterMain.navigate(item.data('id') , {trigger: false, replace: false});
+								
+							}, 500)
+							$('.underline').css({
+								"width": $("[href=#"+item.data('id')+"]").width(),
+								"left": $("[href=#"+item.data('id')+"]").position().left,
+								"top": 28,
+							})
 
 						}
 					}
@@ -106,8 +114,13 @@
 			}
 
 			f();
-
-			$(window).scroll(function(){ f(); });
+			if($(window).width()>=1024){
+				$(window).scroll(function(){ 
+					if($(window).width()>=1024){
+						f();
+					}
+				 });
+			}
 
 			return this;
 		},

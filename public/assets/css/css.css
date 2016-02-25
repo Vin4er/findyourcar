@@ -725,12 +725,12 @@ html body .ib {
   color: #252525;
   font-weight: normal;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .h1 {
     font-size: 48px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   .h1 {
     font-size: 36px;
   }
@@ -748,19 +748,28 @@ html body .ib {
   display: block;
   background: #fd072c;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .h1-line:after {
     margin-top: 60px;
     margin-bottom: 60px;
     height: 7px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   .h1-line:after {
     margin-top: 40px;
     height: 3px;
     margin-bottom: 40px;
   }
+}
+.underline {
+  position: absolute;
+  height: 2px;
+  background: #fd072c;
+  -webkit-transition: 0.3s;
+          transition: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 .wrap {
   min-width: 300px;
@@ -781,9 +790,14 @@ html body .ib {
   padding-top: 27px;
   padding-bottom: 27px;
 }
+.header .wrap {
+  position: relative;
+}
 .header.fixed {
   position: fixed;
-  background: rgba(0,0,0,0.34);
+  background: rgba(37,37,37,0.9);
+  padding-top: 6px;
+  padding-bottom: 8px;
 }
 .header .table {
   table-layout: auto;
@@ -818,8 +832,7 @@ html body .ib {
     color: #fff;
     border-bottom: 2px solid transparent;
   }
-  .header-table a:hover,
-  .header-table a.active {
+  .header-table a:hover {
     border-bottom: 2px solid #fd072c;
   }
   .header-btn {
@@ -842,6 +855,8 @@ html body .ib {
   .header-logo img {
     max-width: 90%;
     vertical-align: middle;
+    position: relative;
+    top: 3px;
   }
   .header-table {
     text-align: center;
@@ -864,8 +879,7 @@ html body .ib {
     color: #fff;
     border-bottom: 2px solid transparent;
   }
-  .header-table a:hover,
-  .header-table a.active {
+  .header-table a:hover {
     border-bottom: 2px solid #fd072c;
   }
   .header-btn {
@@ -885,12 +899,12 @@ html body .ib {
 .block-8 {
   position: relative;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .dtext {
     font-size: 24px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   .dtext {
     font-size: 18px;
   }
@@ -1009,6 +1023,23 @@ html body .ib {
     vertical-align: top;
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .block-2-item:first-child .ib:before {
+    display: none;
+  }
+  .block-2-item .ib {
+    position: relative;
+  }
+  .block-2-item .ib:before {
+    position: absolute;
+    content: '';
+    background: url("/assets/img/icons/fa-angle-right.svg") no-repeat;
+    width: 30px;
+    height: 24px;
+    display: block;
+    top: 120px;
+    left: -15px;
+    background-size: contain;
   }
   .block-2-item-title {
     font-size: 24px;
@@ -1177,7 +1208,7 @@ html body .ib {
 .block-4-item {
   vertical-align: top;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-4-item {
     width: 50%;
     display: inline-block;
@@ -1211,7 +1242,7 @@ html body .ib {
     font-size: 24px;
   }
 }
-@media (max-width: 1440px) and (min-width: 768px) {
+@media (max-width: 1439px) and (min-width: 767px) {
   .block-4-item {
     width: 100%;
     display: block;
@@ -1308,7 +1339,7 @@ html body .ib {
     max-height: 100%;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 499px) {
   .block-4-item {
     width: 100%;
     display: block;
@@ -1387,7 +1418,7 @@ html body .ib {
     text-align: left;
   }
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-5-text {
     font-size: 24px;
   }
@@ -1405,12 +1436,12 @@ html body .ib {
   width: 40%;
   text-align: center;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-5-price {
     margin-top: -11.3%;
   }
 }
-@media (max-width: 1440px) and (min-width: 1024px) {
+@media (max-width: 1439px) and (min-width: 1024px) {
   .block-5-price {
     margin-top: -7%;
   }
@@ -1432,7 +1463,7 @@ html body .ib {
   font-weight: bold;
   white-space: nowrap;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-5-price-big {
     font-size: 144px;
   }
@@ -1468,7 +1499,7 @@ html body .ib {
   line-height: 1;
   color: #b5b5b5;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-5-price-text {
     font-size: 24px;
   }
@@ -1489,7 +1520,7 @@ html body .ib {
   text-align: left;
   white-space: normal;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-5 .h1 {
     padding-right: 4%;
     max-width: 1000px;
@@ -1551,7 +1582,7 @@ html body .ib {
     display: none;
   }
 }
-@media (min-width: 1024px) and (max-width: 1440px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
   .block-6-img {
     margin-top: -10%;
     width: 40%;
@@ -1575,12 +1606,12 @@ html body .ib {
   text-align: left;
   max-width: 60%;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-6-title {
     max-width: 60%;
   }
 }
-@media (max-width: 1440px) and (max-width: 1024px) {
+@media (max-width: 1439px) and (max-width: 1024px) {
   .block-6-title {
     max-width: 50%;
   }
@@ -1613,12 +1644,12 @@ html body .ib {
 .block-6-text {
   text-align: left;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-6-text {
     max-width: 60%;
   }
 }
-@media (max-width: 1440px) and (max-width: 1024px) {
+@media (max-width: 1439px) and (max-width: 1024px) {
   .block-6-text {
     max-width: 50%;
   }
@@ -1635,12 +1666,12 @@ html body .ib {
   color: #b5b5b5;
   margin-bottom: 40px;
 }
-@media (min-width: 1440px) {
+@media (min-width: 1439px) {
   .block-6-text p {
     font-size: 24px;
   }
 }
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   .block-6-text p {
     font-size: 18px;
   }
