@@ -713,10 +713,12 @@ html body .ib {
 }
 @media (max-width: 768px) {
   .btn {
-    width: 100% !important;
+    width: 300px !important;
+    max-width: 100% !important;
     padding-top: 8px;
     padding-bottom: 8px;
     height: auto;
+    margin: auto;
     line-height: normal;
   }
 }
@@ -728,11 +730,13 @@ html body .ib {
 @media (min-width: 1439px) {
   .h1 {
     font-size: 48px;
+    line-height: 1.4;
   }
 }
 @media (max-width: 1439px) {
   .h1 {
     font-size: 36px;
+    line-height: 1.3;
   }
 }
 @media (max-width: 768px) {
@@ -902,11 +906,13 @@ html body .ib {
 @media (min-width: 1439px) {
   .dtext {
     font-size: 24px;
+    line-height: 1.4;
   }
 }
 @media (max-width: 1439px) {
   .dtext {
     font-size: 18px;
+    line-height: 1.1;
   }
 }
 .block-1,
@@ -934,7 +940,7 @@ html body .ib {
   left: 50%;
   margin-left: -75px;
 }
-@media (max-width: 500px) {
+@media (max-width: 1024px) {
   .block-1 .info-control {
     display: none;
   }
@@ -1112,6 +1118,7 @@ html body .ib {
   margin-bottom: 35px;
   padding-left: 12%;
   padding-right: 12%;
+  color: #b5b5b5;
 }
 .block-3 .wrap {
   padding-top: 110px;
@@ -1242,7 +1249,7 @@ html body .ib {
     font-size: 24px;
   }
 }
-@media (max-width: 1439px) and (min-width: 767px) {
+@media (max-width: 1439px) and (min-width: 769px) {
   .block-4-item {
     width: 100%;
     display: block;
@@ -1409,6 +1416,18 @@ html body .ib {
   line-height: 1.3;
   color: #b5b5b5;
 }
+@media (max-width: 767px) {
+  .block-5-text {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  .block-5-text {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
 @media (max-width: 1024px) {
   .block-5-text {
     display: block;
@@ -1473,7 +1492,7 @@ html body .ib {
     margin-left: -50px;
   }
 }
-@media (max-width: 1440px) and (min-width: 1024px) {
+@media (max-width: 1440px) and (min-width: 768px) {
   .block-5-price-big {
     font-size: 100px;
   }
@@ -1483,7 +1502,7 @@ html body .ib {
     margin-left: -50px;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .block-5-price-big {
     font-size: 60px;
   }
@@ -1637,7 +1656,7 @@ html body .ib {
 }
 @media (max-width: 1024px) {
   .block-6-btn {
-    width: 100%;
+    margin: auto;
     text-align: center;
   }
 }
@@ -1654,10 +1673,18 @@ html body .ib {
     max-width: 50%;
   }
 }
+@media (max-width: 767px) {
+  .block-6-text {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
 @media (max-width: 1024px) {
   .block-6-text {
+    padding-left: 50px;
+    padding-right: 50px;
     max-width: 100%;
-    text-align: center;
+    text-align: left;
     margin-bottom: 40px !important;
   }
 }
@@ -1744,6 +1771,16 @@ html body .ib {
   font-size: 11px;
   color: #fff;
   padding-top: 15px;
+  position: relative;
+}
+.block-7-text:before {
+  content: '';
+  background: url("/assets/img/icons/fanote2.svg") no-repeat center;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: -19px;
+  display: block;
 }
 .block-7-img {
   width: 40px;

@@ -51,6 +51,7 @@
 					self.slidezItem = new Swiper('.swiper-container', {
 				        pagination: '.swiper-pagination',
 				        slidesPerView: perView,
+				        loop: true,
 						nextButton: '.swiper-button-next',
 						prevButton: '.swiper-button-prev',
 				    });
