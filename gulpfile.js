@@ -5,8 +5,11 @@ var gulp = require('gulp'),
 	jade = require('gulp-jade'),
 	jadeOrig = require('jade'),
 	stylus = require('gulp-stylus'),
-	concat = require('gulp-concat');
+	concat = require('gulp-concat'),
 
+	imagemin = require('gulp-imagemin'),
+	uglify = require('gulp-uglify'), // минификатор
+	csso = require('gulp-csso');
 
 // Пути к файлам
 path = {
@@ -66,10 +69,18 @@ gulp.task('js', function() {
 	gulp.src([
 			"./dev/js/lib/backbone/underscore.js",
 			"./dev/js/lib/backbone/backbone.js",
+
+			"./dev/js/lib/inputmask/inputmask.js", 
+
+			"./dev/js/lib/swiper/swiper.jquery.js",
+			"./dev/js/lib/fancybox/jquery.fancybox.js",
+
 			"./dev/js/bbapp/init-helpers.js",
+
 			"./dev/js/bbapp/routes/main-router.js",
 			"./dev/js/bbapp/models/main-model.js",
 			"./dev/js/bbapp/view/main-view.js",
+
 			"./dev/js/bbapp/init-bbapp.js",
 		])
 		.pipe(concat('bbapp.min.js'))
@@ -104,25 +115,29 @@ gulp.task('jade', function() {
 		.pipe(gulp.dest(path.html.destination));
 });
 
-gulp.task('fonts', function() { });
-// стпрайты
-gulp.task('sprite', function() { });
+
+gulp.task('fonts', function() {
+    // gulp.src(['./dev/fonts/**/*', './dev/fonts/*'])
+    //     .pipe(gulp.dest('./public/assets/fonts'));
+});
+
 //Копируем изображения и сразу их обновляем
 gulp.task('img', function() {
-	gulp.src(path.img.source).pipe(gulp.dest(path.img.destination)); // out place
+	gulp.src(path.img.source)
+		.pipe(imagemin())
+		.pipe(gulp.dest(path.img.destination));
 });
 
 
 // Watch Task
 gulp.task('watch', function() {
 	livereload.listen();
-	gulp.watch(path.sprite.watch, ['sprite']).on('change', livereload.changed);
 	gulp.watch(path.img.watch, ['img']).on('change', livereload.changed);
 	gulp.watch(path.html.watch, ['jade']).on('change', livereload.changed);
 	gulp.watch(path.js.watch, ['js']).on('change', livereload.changed);
 	gulp.watch(path.css.watch, ['stylus']).on('change', livereload.changed);
 });
 
-gulp.task("build", ['sprite', 'img', 'jade', 'fonts', 'js', 'stylus', 'webserver']);
+gulp.task("build", [ 'img', 'jade', 'fonts', 'js', 'stylus', 'webserver']);
 // Default Task
 gulp.task("default", ['build', 'watch']);

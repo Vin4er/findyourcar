@@ -1,21 +1,17 @@
 "use strict";
 
 (function() {
-
+	/**
+	 * Роуты
+	 */
 	app.Router.Main = Backbone.Router.extend({
-
 		routes: {
-			"": "changeRoute",    // #help
-			":type": "changeRoute",    // #help
-			
+			"": "changeRoute",
+			":type": "changeRoute",			
 		},
-
 		changeRoute: function(page){
-			if(  page == undefined ){
-				console.log('главная')
-			}
+			vent.trigger('pageHash', (  page == undefined ) ? 'index' : page )
 		}
-
 	});
 
 })();

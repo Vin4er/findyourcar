@@ -11,6 +11,10 @@
 	font-family: 'PT Sans', sans-serif;
 
 
+@import  "./lib/swiper/swiper.styl"
+@import  "./lib/fancybox/jquery.fancybox.styl"
+
+
 @import  "./layout/inputs.styl"
 
 .wrap
@@ -27,7 +31,6 @@ header
 	width: 100%
 	left: 0
 	top: 0
-	display: none
 	z-index: 4
 
 .block-1,
@@ -153,6 +156,8 @@ header
 			display: block
 			width: 100%
 			text-align: left
+			.ib
+				width: 100%
 			&-about
 				padding-left: 170px
 				padding-top: 20px
@@ -167,6 +172,8 @@ header
 			width: 100%
 			text-align: left
 			margin-bottom: 20px
+			.ib
+				width: 100%
 			&-about
 				padding-left: 0px
 				padding-top: 20px

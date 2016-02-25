@@ -3,6 +3,7 @@
 (function(){
 	// Главный вид
 	{	
+		Backbone.history.start({ pushState: false })
 		// инит вида.
 		app.RouterMain = new app.Router.Main;
 
@@ -12,7 +13,7 @@
 		// инит модели
 		app.mainModel =  new app.Model.Main;
 
-		Backbone.history.start()
+
 		
 	};
 

@@ -6,9 +6,8 @@ extends /layouts/layout.jade
 //content start
 block content
 	#landos
-		.block-1
-			.prallax
-				img(src="",
+		.block-1(data-id="index")
+			.prallax(src="",
 					data-imgset="true",
 					data-path="/assets/img/",
 					data-1024-1440="Desktop (1024-1440)/1",
@@ -31,7 +30,7 @@ block content
 								a.info-control
 									span Листайте вниз
 									img(width=24 height=42 src="/assets/img/icons/ScrollDown.svg")
-		.block-2
+		.block-2(data-id="КакМыРаботаем")
 			.wrap
 				.h1 Как все устроено
 				.table.w100.block-2-items
@@ -74,9 +73,8 @@ block content
 										Сопровождаем вас на место осмотра нашего варианта, делаем контрольную проверку. Торгуемся и составляем ДКП.
 										Поздравляем вас с покупкой!
 
-		.block-3
-			.prallax
-				img(src="",
+		.block-3(data-id="Особенности")
+			.prallax(src="",
 					data-imgset="true",
 					data-path="/assets/img/",
 					data-1024-1440="Desktop (1024-1440)/2",
@@ -150,9 +148,8 @@ block content
 									Некоторые продавцы маскируют неисправности, которые
 									приведут к крупной поломке и перекладывают его ремонт 
 									на следующего владельца. Мы рассматриваем только авто 
-		.block-5
-			.prallax
-				img(src="",
+		.block-5(data-id="Стоимость")
+			.prallax(src="",
 					data-imgset="true",
 					data-path="/assets/img/",
 					data-1024-1440="Desktop (1024-1440)/3",
@@ -179,7 +176,7 @@ block content
 						#[br]#[i.white.italic Никаких предоплат] — услугу вы оплачиваете только  при подписании ДКП.#[br]
 						Благодаря профессиональному торгу, #[i.white.italic в 90% случаев услуги оказываются бесплатными.]
 
-		.block-6
+		.block-6(data-id="СпециалистНаВыезд")
 			.wrap
 				.block-6-title.h1.h1-line Уже нашли автомобиль?
 
@@ -205,7 +202,7 @@ block content
 					a.btn.btn-red(href="#") Хочу получить помощь эксперта
 
 
-		.block-7
+		.block-7(data-id="Отзывы")
 			.swiper-container
 				.swiper-wrapper
 					- var items = ["1", "2", "3", "4", "5", "6"]
