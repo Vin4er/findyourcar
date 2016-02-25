@@ -63,6 +63,8 @@ gulp.task('js', function() {
 
 
 	gulp.src([
+			"./dev/js/lib/jquery/jquery.min.js",
+
 			"./dev/js/helper-page.js",
 
 			"./dev/js/lib/backbone/underscore.js",
