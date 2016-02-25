@@ -124,15 +124,16 @@
 						if(  (item.offset().top ) < (scrollTop + wh/2) &&  (item.offset().top) > (scrollTop - wh/2 )){
 							$("header .active").removeClass("active");
 							$("[href=#"+$(this).data('id')+"]").addClass('active');
-							$('.underline').css({
-								"width": $(".header-table [href=#"+item.data('id')+"]").width(),
-								"left": $(".header-table [href=#"+item.data('id')+"]").position().left,
-								"top": 28,
-							});
+							
 							if(timer)clearTimeout(timer);
 							timer = setTimeout(function(){
 								app.RouterMain.navigate(item.data('id') , {trigger: false, replace: false});
-							}, 500);
+								$('.underline').css({
+									"width": $(".header-table [href=#"+item.data('id')+"]").width(),
+									"left": $(".header-table [href=#"+item.data('id')+"]").position().left,
+									"top": 28,
+								});
+							}, 200);
 
 						}
 					}
