@@ -103,8 +103,8 @@
 								
 							}, 500)
 							$('.underline').css({
-								"width": $("[href=#"+item.data('id')+"]").width(),
-								"left": $("[href=#"+item.data('id')+"]").position().left,
+								"width": $(".header-table [href=#"+item.data('id')+"]").width(),
+								"left": $(".header-table [href=#"+item.data('id')+"]").position().left,
 								"top": 28,
 							})
 
