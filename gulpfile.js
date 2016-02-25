@@ -60,13 +60,11 @@ gulp.task('webserver', function() {
 // Собираем JS
 gulp.task('js', function() {
 
-	gulp.src(["./dev/js/helper-page.js"])
-		.pipe(concat('default_libs_script.min.js'))
-		// .pipe(uglify())
-		.pipe(gulp.dest('./public/assets/js'));
 
 
 	gulp.src([
+			"./dev/js/helper-page.js",
+
 			"./dev/js/lib/backbone/underscore.js",
 			"./dev/js/lib/backbone/backbone.js",
 
@@ -83,8 +81,8 @@ gulp.task('js', function() {
 
 			"./dev/js/bbapp/init-bbapp.js",
 		])
-		.pipe(concat('bbapp.min.js'))
-		// .pipe(uglify())
+		.pipe(concat('app.min.js'))
+		.pipe(uglify())
 		.pipe(gulp.dest('./public/assets/js'));
 
 });
@@ -98,6 +96,7 @@ gulp.task('stylus', function() {
 		.pipe(stylus())
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ie 10', 'ie 11', 'ie 12', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(concat(path.css.distribution)) // file views
+		.pipe(csso())
 		.pipe(gulp.dest(path.css.destination)); // out place
 });
 
