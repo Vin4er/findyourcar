@@ -26,6 +26,7 @@
 			var self = this;
 			this.imgSet().prallax().scroller();
 
+			self.slidez();
 
 			vent.on('pageHash', function(page, event){
 				self.scroller(page)
@@ -37,6 +38,32 @@
 			$(window).scroll(function(){
 				self.headerfix().prallax()
 			});
+		},
+
+		slidez: function(){
+			var self = this,
+				fInit = function(){
+					var perView = $(window).width() >= 1440 ? 5: (  $(window).width() < 1024 ? (  $(window).width()< 768 ? 1: 3 ) : 3 );
+					console.log(perView)
+					
+					perView = (perView  == 5  && $('.swiper-slide').length < 5) ? $('.swiper-slide').length : ((perView == 3 && $('.swiper-slide').length < 3 ) ? $('.swiper-slide').length  : perView)
+
+					self.slidezItem = new Swiper('.swiper-container', {
+				        pagination: '.swiper-pagination',
+				        slidesPerView: perView,
+						nextButton: '.swiper-button-next',
+						prevButton: '.swiper-button-prev',
+				    });
+				};
+				
+			fInit();
+		    $(window).resize(function(){
+				if(self.slidezItem) {
+					self.slidezItem.destroy(true, false);
+					self.slidezItem = undefined;
+					fInit();
+				}
+			});	
 		},
 
 		/*
@@ -85,7 +112,6 @@
 					scrollTop = $(window).scrollTop(),
 					wh = $(window).height(),
 					ww = $(window).width();
-
 				$("[data-id]").each(function(){
 					var 
 						// текущий элемент
@@ -97,16 +123,15 @@
 						if(  (item.offset().top ) < (scrollTop + wh/2) &&  (item.offset().top) > (scrollTop - wh/2 )){
 							$("header .active").removeClass("active");
 							$("[href=#"+$(this).data('id')+"]").addClass('active');
-							if(timer)clearTimeout(timer)
-							timer = setTimeout(function(){
-								app.RouterMain.navigate(item.data('id') , {trigger: false, replace: false});
-								
-							}, 500)
 							$('.underline').css({
 								"width": $(".header-table [href=#"+item.data('id')+"]").width(),
 								"left": $(".header-table [href=#"+item.data('id')+"]").position().left,
 								"top": 28,
-							})
+							});
+							if(timer)clearTimeout(timer);
+							timer = setTimeout(function(){
+								app.RouterMain.navigate(item.data('id') , {trigger: false, replace: false});
+							}, 500);
 
 						}
 					}
