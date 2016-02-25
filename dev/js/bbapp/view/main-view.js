@@ -143,9 +143,9 @@
 
 			if ( ww >= 1440){
 				type = "1440";
-			}else if ( ww < 1440 &&  ww >= 1024 ){
+			}else if ( ww < 1440 &&  ww > 1024 ){
 				type = "1024-1440";
-			}else if ( ww < 1024 &&  ww > 320 ){
+			}else if ( ww <= 1024 &&  ww > 320 ){
 				type = "768-1024";
 			} else  if ( ww <= 320  ){
 				type = "320-768";
