@@ -24,7 +24,7 @@
 		 **/
 		initialize: function() {
 			var self = this;
-			this.imgSet().prallax();
+			this.imgSet().prallax().scroller();
 
 
 			vent.on('pageHash', function(page, event){
@@ -35,11 +35,23 @@
 				self.prallax().imgSet();
 			});	
 			$(window).scroll(function(){
-				self.prallax();
+				self.headerfix().prallax()
 			});
 		},
 
-
+		/*
+		 * скролл хедера
+		 *
+		 * @event - {object of event}
+		 **/
+		headerfix: function(){
+			var
+				scrollTop = $(window).scrollTop(),
+				b2TOP = $('.block-2').offset().top- 100;
+			$('.header')[(scrollTop>b2TOP)?'addClass':'removeClass']('fixed')
+			
+			return this;
+		},
 
 		/*
 		 * запрещаем действия по дефу
@@ -61,7 +73,42 @@
 		 * @page - {string} - строка из события роута
 		 **/
 		scroller: function(page){
-			$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
+			console.log(page)
+			if(page){
+				$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
+
+				$("header .active").removeClass("active");
+				$("[href=#"+page+"]").addClass('active');
+			}
+			var f = function(){
+				var 
+					scrollTop = $(window).scrollTop(),
+					wh = $(window).height(),
+					ww = $(window).width();
+
+				$("[data-id]").each(function(){
+					var 
+						// текущий элемент
+						item  = $(this);
+					if(scrollTop == 0){
+						$("header .active").removeClass("active");
+						$("[href=#index]").addClass('active');
+					}else{
+						if(  (item.offset().top ) < (scrollTop + wh/2) &&  (item.offset().top) > (scrollTop - wh/2 )){
+							console.log( $("[href=#"+$(this).data('id')+"]") )
+							$("header .active").removeClass("active");
+							$("[href=#"+$(this).data('id')+"]").addClass('active');
+							app.RouterMain.navigate($(this).data('id') , {trigger: false, replace: false});
+
+						}
+					}
+				})
+			}
+
+			f();
+
+			$(window).scroll(function(){ f(); });
+
 			return this;
 		},
 

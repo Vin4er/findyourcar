@@ -1,12 +1,16 @@
 ﻿header#header.header
 	.wrap
-		.header-logo
-			img(src="")
-		.header-table.table
-			ul.row
-				- var items = [["index","О FINDYOURCAR"], ["КакМыРаботаем", "Как мы работаем"], ["Особенности", "Особенности"], ["Стоимость","Стоимость"], ["СпециалистНаВыезд", "Специалист на выезд"], ["Отзывы","Отзывы"]]
-				- each item in items
-					li.cell
-						a.scroll-link(href="##{item[0]}") #{item[1]}
-		.header-btn
-			a.btn.btn-red(href="#") Пообщаться с экспертом
+		.table.w100
+			.row
+				.header-logo.cell
+					a.scroll-link(href="#index")
+						img(src="/assets/img/icons/Logo.svg", width=174, height=34)
+				.header-table.cell
+					.table.w100
+						ul.row
+							- var items = [["index","О FINDYOURCAR"], ["КакМыРаботаем", "Как мы работаем"], ["Особенности", "Особенности"], ["Стоимость","Стоимость"], ["СпециалистНаВыезд", "Специалист на выезд"], ["Отзывы","Отзывы"]]
+							- each item in items
+								li.cell
+									a.scroll-link(href="##{item[0]}") #{item[1]}
+				.header-btn.cell
+					a.btn.btn-red(href="#") Пообщаться с экспертом

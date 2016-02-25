@@ -25,14 +25,84 @@
 	width 100%
 	position relative
 	margin: auto
-header
-	position: fixed
+.header
+	position: absolute
 	overflow hidden
 	width: 100%
 	left: 0
 	top: 0
 	z-index: 4
-
+	padding-top: 27px
+	padding-bottom: 27px
+	&.fixed
+		position fixed
+		background: rgba(0, 0, 0, 0.34)
+	.table
+		table-layout: auto;
+	@media (min-width: 1440px)
+		&-logo
+			max-width 230px
+			width 230px
+			img
+				position relative
+				top: 5px
+		&-table
+			text-align: center
+			.table
+				table-layout: auto;
+				margin auto
+				width: auto
+			.cell
+				text-align: center
+				padding-left 15px
+				padding-right 15px
+			a
+				color white
+				font-size: 14px;
+				line-height: 0.9;
+				text-decoration: none
+				color: #ffffff;
+				border-bottom 2px solid transparent
+				&:hover, &.active
+					border-bottom 2px solid #fd072c
+		&-btn
+			text-align right
+			max-width 210px
+			width 210px
+			padding-left: 30px
+	@media (max-width: 1024px)
+		display none
+	@media (max-width: 1440px) and (min-width: 1024px) 
+		&-logo
+			max-width 130px
+			width 130px
+			img
+				max-width 90%
+				vertical-align middle
+		&-table
+			text-align: center
+			.table
+				table-layout: auto;
+				margin auto
+				width: auto
+			.cell
+				text-align: center
+				padding-left 15px
+				padding-right 15px
+			a
+				color white
+				font-size: 12px;
+				line-height: 1.1;
+				text-decoration: none
+				color: #ffffff;
+				border-bottom 2px solid transparent
+				&:hover, &.active
+					border-bottom 2px solid #fd072c
+		&-btn
+			text-align right
+			max-width 210px
+			width 210px
+			padding-left: 30px
 .block-1,
 .block-2,
 .block-3,
@@ -527,6 +597,8 @@ header
 // 768, 1024, 1440
 .block-6
 	background: white
+	@media (min-width: 1024px) and (max-width: 1440px)
+		overflow hidden
 	.wrap
 		padding-top: 60px
 		padding-bottom: 70px
@@ -538,10 +610,20 @@ header
 		img
 			max-width: 100%
 			max-height: 100%
+		@media (min-width: 1430px)
+			height: 500px;
+			background: url("/assets/img/Tablet (768-1024)/MacBook@2x.png")
+			background-size contain
+			background-position center
+			background-repeat no-repeat
+			img
+				display none
 		@media (min-width: 1024px) and (max-width: 1440px)
-			margin-top: -8%;
-			width: 50%;
+			margin-top: -10%;
+			width: 40%
 			text-align: center
+			img
+				margin-right: -10%;
 		@media (max-width: 1024px)
 			margin-top: 0px
 			float none
