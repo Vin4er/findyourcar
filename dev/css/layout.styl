@@ -214,6 +214,9 @@
 			display inline-block
 			line-height: 120px
 			height: 120px
+			background-size contain
+			background-position center
+			background-repeat no-repeat
 			img
 				max-width 100%
 				vertical-align middle
@@ -248,7 +251,7 @@
 				font-size: 18px;
 				line-height: 1.4;
 				color: #b5b5b5;
-		@media (max-width: 1024px) and (min-width: 768px)
+		@media (max-width: 1024px) and (min-width: 767px)
 			display: block
 			width: 100%
 			text-align: left
@@ -263,6 +266,9 @@
 					clear: both
 			&-img
 				float: left;
+				background-size contain
+				background-position center
+				background-repeat no-repeat
 		@media  (max-width: 767px)
 			display: block
 			width: 100%
@@ -311,7 +317,7 @@
 		white-space nowrap
 		vertical-align top
 
-		@media (max-width: 1024px) and (min-width: 768px)
+		@media (max-width: 1024px) and (min-width: 767px)
 			&-num
 				&:after
 					content '' !important
@@ -380,6 +386,9 @@
 				line-height 270px
 				vertical-align middle
 				margin: auto
+				background-size contain
+				background-repeat no-repeat
+				background-position center
 				text-align center
 				img
 					vertical-align middle
@@ -411,7 +420,8 @@
 					float: right
 			&-about
 				padding-left: 40%
-				padding-top: 40px;
+				padding-bottom: 20px;
+				margin-top: 20px
 			&:after
 				content: ""
 				display inline-block
@@ -435,6 +445,10 @@
 					height: 200px
 					text-align center
 					float: left
+					background-size contain
+					background-repeat no-repeat
+					background-position center
+					text-align center
 					img
 						vertical-align middle
 						max-height: 100%
@@ -448,7 +462,8 @@
 
 			&-about
 				padding-left: 40%
-				padding-top: 40px;
+				padding-bottom: 20px;
+				margin-top: 20px
 			&:after
 				content: ""
 				display inline-block
@@ -472,6 +487,10 @@
 				height: 200px
 				text-align center
 				float: left
+				background-size contain
+				background-repeat no-repeat
+				background-position center
+				text-align center
 				img
 					vertical-align middle
 					max-height: 100%
@@ -483,7 +502,8 @@
 			clear: both
 			margin-bottom: 12px
 			&-about
-				padding-top: 40px;
+				padding-bottom: 20px;
+				margin-top: 20px
 			&:after
 				content: ""
 				display inline-block
@@ -505,6 +525,10 @@
 				vertical-align middle
 				margin: auto
 				height: 200px
+				text-align center
+				background-size contain
+				background-repeat no-repeat
+				background-position center
 				text-align center
 				img
 					vertical-align middle
@@ -532,7 +556,7 @@
 		@media (max-width: 767px)
 			padding-left 0px
 			padding-right 0px
-		@media (max-width: 1024px) and (min-width: 768px)
+		@media (max-width: 1024px) and (min-width: 767px)
 			padding-left 50px
 			padding-right 50px
 		@media (max-width: 1024px)
@@ -542,9 +566,13 @@
 			width: 100%
 			text-align: left
 		@media (min-width: 1439px)
+			padding-left 50px
+			padding-right 50px
 			font-size: 24px;
 		@media (max-width: 1440px)
 			font-size: 18px;
+			padding-left 50px
+			padding-right 50px
 	&-price
 		@media (min-width: 1439px)
 			margin-top: -11.3%
@@ -575,13 +603,13 @@
 					width: 197px
 					margin-bottom: -88px
 					margin-left: -50px
-			@media (max-width: 1440px) and (min-width: 768px)
+			@media (max-width: 1440px) and (min-width: 767px)
 				font-size: 100px
 				img
 					width: 137px
 					margin-bottom: -61px
 					margin-left: -50px
-			@media (max-width: 768px)
+			@media (max-width: 767px)
 				font-size: 60px
 				img
 					width: 82px;
@@ -607,8 +635,12 @@
 		@media (min-width: 1439px) 
 			padding-right: 4%
 			max-width: 1000px
+			padding-left 50px
+			padding-right 50px
 		@media (max-width: 1440px) and (min-width: 1024px)
 			padding-right: 10%
+			padding-left 50px
+			padding-right 50px
 		@media (max-width: 1024px)
 			display: block
 			margin auto
@@ -649,7 +681,7 @@
 			background-repeat no-repeat
 			img
 				display none
-		@media (min-width: 1024px) and (max-width: 1439px)
+		@media (min-width: 1024px) and (min-width: 1439px)
 			margin-top: -10%;
 			width: 40%
 			text-align: center
@@ -667,8 +699,10 @@
 		max-width: 60%
 		@media (min-width: 1439px)
 			max-width: 60%
-		@media (max-width: 1439px) and (max-width: 1024px)
+			padding-left 50px
+		@media (max-width: 1439px) and (min-width: 1024px)
 			max-width: 50%
+			padding-left 50px
 		@media (max-width: 1024px)
 			margin-bottom: 40px !important;
 			max-width: 100%
@@ -679,18 +713,22 @@
 	&-btn
 		padding-top: 40px
 		width: 300px
+		@media (min-width: 1439px)
+			padding-left 50px
+		@media (max-width: 1439px) and (min-width: 1024px)
+			padding-left 50px
 		@media (max-width: 1024px)
-			padding-top: 0px
-		@media (max-width: 1024px)
-			// width: 100%
 			margin auto
+			padding-top: 0px
 			text-align center
 	&-text
 		text-align: left
 		@media (min-width: 1439px)
 			max-width: 60%
-		@media (max-width: 1439px) and (max-width: 1024px)
+			padding-left 50px
+		@media (max-width: 1439px) and (min-width: 1024px)
 			max-width: 50%
+			padding-left 50px
 		@media (max-width: 767px)
 			padding-left 0px !important
 			padding-right 0px !important
@@ -716,7 +754,12 @@
 	height: 293px
 	background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
 	overflow: hidden
+	position relative
 	&-carinfo
+		position absolute
+		bottom 28px
+		left 30px
+		right 30px
 		.table
 			width 100%
 		@media (min-width: 1024px)
@@ -816,7 +859,7 @@
 	position: relative
 	&-title
 		text-align: center
-	@media (max-width: 768px)
+	@media (max-width: 767px)
 		padding-top: 40px
 	.h1
 		padding-bottom: 30px
@@ -824,7 +867,7 @@
 		width: 300px
 		margin: auto
 		text-align center
-		@media (max-width: 768px)
+		@media (max-width: 767px)
 			width: auto
 		a
 			margin-bottom: 30px
@@ -833,5 +876,5 @@
 			margin-top 100px
 			margin-bottom 30px
 			
-			@media (max-width: 768px)
+			@media (max-width: 767px)
 				margin-top 40px
