@@ -10,7 +10,8 @@
 		el: "#page",
 
 
-
+		activePage: false, 
+		activePageHover: false, 
 		events: {
 			// клик по ссылке, действие которой надо отменить
 			"click .scroll-link": "preventDefault"
@@ -40,6 +41,19 @@
 			$(window).scroll(function(){
 				self.headerfix().prallax()
 			});
+
+			if(  $(window).width() > 1024 ){
+
+				$(document).on('mouseenter', function(event) {
+					self.activePageHover = true;
+				});
+				$(document).on('mouseleave', function(event) {
+					if( !self.activePage && self.activePageHover){
+						self.activePage = true;
+						alert('Вернись');
+					}
+				});
+			}
 		},
 
 		slidez: function(){
@@ -106,7 +120,8 @@
 		 * @page - {string} - строка из события роута
 		 **/
 		scroller: function(page){
-			page = page ? page : window.location.hash.substr(1)
+			var loc = window.location.hash.substr(1);
+			page = page ? page : (loc?loc:"index")
 			$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
 			$("header .active").removeClass("active");
 			$("[href=#"+page+"]").addClass('active');
