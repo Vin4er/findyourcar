@@ -10,7 +10,12 @@
 			":type": "changeRoute",			
 		},
 		changeRoute: function(page){
-			vent.trigger('pageHash', (  page == undefined ) ? 'index' : page )
+			console.log(page)
+			if (page == "lead" || page ==  "linkprivacy"){
+				return false
+			}else{
+				vent.trigger('pageHash', (  page == undefined ) ? 'index' : page )
+			}
 		}
 	});
 

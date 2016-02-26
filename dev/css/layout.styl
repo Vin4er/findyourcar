@@ -16,6 +16,31 @@
 
 
 @import  "./layout/inputs.styl"
+
+.fancybox
+	&-skin
+		background-color: #252525;
+		padding 0!important
+	&-overlay
+		background: rgba(0, 0, 0, 0.72)
+.modal
+	&-input
+		display inline-block
+		vertical-align bottom
+	&-form
+		.table
+			.cell
+				vertical-align bottom
+				button, input
+					display inline-block
+					vertical-align bottom
+		input
+			height: 38px;
+			background-color: #ffffff;
+			padding-left 10px
+			padding-right 10px
+			border: solid 2px #fd072c;
+
 .underline
 	position absolute
 	height 2px
@@ -33,7 +58,7 @@
 .header
 	position: absolute
 	overflow hidden
-	width: 100%
+	right: 0;
 	left: 0
 	top: 0
 	z-index: 4

@@ -25,7 +25,7 @@
 		 **/
 		initialize: function() {
 			var self = this;
-			this.imgSet().prallax().headerfix()
+			this.imgSet().prallax().headerfix().fancy().masks();
 			setTimeout(function(){
 				self.scroller();
 			}, 1000)
@@ -50,7 +50,7 @@
 				$(document).on('mouseleave', function(event) {
 					if( !self.activePage && self.activePageHover){
 						self.activePage = true;
-						alert('Вернись');
+						$('.header .fancybox').click();
 					}
 				});
 			}
@@ -82,6 +82,18 @@
 			});	
 		},
 
+		fancy: function(){
+			$('.fancybox').fancybox();
+			return this;
+		},
+
+		masks: function(){
+			var im = new Inputmask("+7 (999) 999 9999");
+			im.mask( $('.phones')[0] )
+			// im.mask('input.phones');
+			return this;
+		},
+
 		/*
 		 * скролл хедера
 		 *
@@ -103,7 +115,11 @@
 		 **/
 		preventDefault: function(event){
 			event.preventDefault();
+			if (event.currentTarget.hash.substr(1) == "lead" || event.currentTarget.hash.substr(1) ==  "linkprivacy"){
+				return false
+			}
 			if( location.hash.substr(1) == event.currentTarget.hash.substr(1) ){
+
 				this.scroller(location.hash.substr(1))
 			}else{
 				app.RouterMain.navigate(event.currentTarget.hash.substr(1) , {trigger: true, replace: false});
@@ -122,6 +138,8 @@
 		scroller: function(page){
 			var loc = window.location.hash.substr(1);
 			page = page ? page : (loc?loc:"index")
+		
+
 			$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
 			$("header .active").removeClass("active");
 			$("[href=#"+page+"]").addClass('active');
