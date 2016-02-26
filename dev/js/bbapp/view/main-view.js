@@ -24,8 +24,10 @@
 		 **/
 		initialize: function() {
 			var self = this;
-			this.imgSet().prallax().scroller();
-
+			this.imgSet().prallax().headerfix()
+			setTimeout(function(){
+				self.scroller();
+			}, 1000)
 			self.slidez();
 
 			vent.on('pageHash', function(page, event){
@@ -44,7 +46,6 @@
 			var self = this,
 				fInit = function(){
 					var perView = $(window).width() >= 1440 ? 5: (  $(window).width() < 1024 ? (  $(window).width()< 768 ? 1: 3 ) : 3 );
-					console.log(perView)
 					
 					perView = (perView  == 5  && $('.swiper-slide').length < 5) ? $('.swiper-slide').length : ((perView == 3 && $('.swiper-slide').length < 3 ) ? $('.swiper-slide').length  : perView)
 
@@ -75,8 +76,8 @@
 		headerfix: function(){
 			var
 				scrollTop = $(window).scrollTop(),
-				b2TOP = $('.block-2').offset().top- 100;
-			$('.header')[(scrollTop>b2TOP)?'addClass':'removeClass']('fixed')
+				b2TOP = $('.block-2').offset().top - 100;
+			$('.header')[(scrollTop>b2TOP)?'addClass':'removeClass']('fixed');
 			
 			return this;
 		},
@@ -88,7 +89,11 @@
 		 **/
 		preventDefault: function(event){
 			event.preventDefault();
-			app.RouterMain.navigate(event.currentTarget.hash.substr(1) , {trigger: true, replace: false});
+			if( location.hash.substr(1) == event.currentTarget.hash.substr(1) ){
+				this.scroller(location.hash.substr(1))
+			}else{
+				app.RouterMain.navigate(event.currentTarget.hash.substr(1) , {trigger: true, replace: false});
+			}
 
 			return this;
 		},
@@ -101,43 +106,41 @@
 		 * @page - {string} - строка из события роута
 		 **/
 		scroller: function(page){
-			if(page){
-				$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
-
-				$("header .active").removeClass("active");
-				$("[href=#"+page+"]").addClass('active');
-			}
-			var timer;
-			var f = function(){
-				var 
-					scrollTop = $(window).scrollTop(),
-					wh = $(window).height(),
-					ww = $(window).width();
-				$("[data-id]").each(function(){
+			page = page ? page : window.location.hash.substr(1)
+			$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
+			$("header .active").removeClass("active");
+			$("[href=#"+page+"]").addClass('active');
+			var timer,
+				f = function(){
 					var 
-						// текущий элемент
-						item  = $(this);
-					if(scrollTop == 0){
-						$("header .active").removeClass("active");
-						$("[href=#index]").addClass('active');
-					}else{
-						if(  (item.offset().top ) < (scrollTop + wh/2) &&  (item.offset().top) > (scrollTop - wh/2 )){
+						scrollTop = $(window).scrollTop(),
+						wh = $(window).height(),
+						ww = $(window).width();
+
+					$("[data-id]").each(function(){
+						var 
+							// текущий элемент
+							item  = $(this);
+						if(scrollTop == 0){
 							$("header .active").removeClass("active");
-							$("[href=#"+$(this).data('id')+"]").addClass('active');
-							
-							if(timer)clearTimeout(timer);
-							timer = setTimeout(function(){
-								app.RouterMain.navigate(item.data('id') , {trigger: false, replace: false});
+							$("[href=#index]").addClass('active');
+						}else{
+							if(  (item.offset().top ) < (scrollTop + wh/2) &&  (item.offset().top) > (scrollTop - wh/2 )){
+								$("header .active").removeClass("active");
+								$("[href=#"+$(this).data('id')+"]").addClass('active');
 								$('.underline').css({
-									"width": $(".header-table [href=#"+item.data('id')+"]").width(),
+									"width": $(".header-table [href=#"+item.data('id')+"]").width()+2,
 									"left": $(".header-table [href=#"+item.data('id')+"]").position().left,
 									"top": 28,
 								});
-							}, 200);
+								if(timer)clearTimeout(timer);
+								timer = setTimeout(function(){
+									app.RouterMain.navigate(item.data('id') , {trigger: false, replace: false});
+								}, 200);
 
+							}
 						}
-					}
-				})
+					})
 			}
 
 			f();
@@ -147,7 +150,7 @@
 						f();
 					}
 				 });
-			}
+			};
 
 			return this;
 		},
