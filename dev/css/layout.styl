@@ -827,9 +827,11 @@
 				line-height: 1.0;
 				color: #ffffff;
 	&-top
-		height 160px
-		transition .3s
-		opacity: 0
+		height: 140px;
+		-webkit-transition: .3s;
+		transition: .3s;
+		opacity: 0;
+		overflow: hidden;
 		@media (max-width: 1024px)
 			opacity: 1
 	&-ava
@@ -913,6 +915,7 @@
 				margin-top 40px
 .fancybox-wrap
 	@media (max-width:1024px )
+		position: fixed !important
 		top: 0 !important
 		bottom: 0 !important
 		left: 0px !important

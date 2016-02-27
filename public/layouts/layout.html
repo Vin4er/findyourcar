@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection">
 		<title>Order</title>
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700">
 		<link rel="stylesheet" href="/assets/css/css.css">
@@ -41,7 +41,7 @@
 			<section id="content" class="content">
 			</section>
 		</div>
-		<div style="display: none"><a href="#comeback" class="fancybox"></a>
+		<div style="display: none"><a href="#comeback" class="fancybox"></a><a href="#privacy" class="fancybox"></a>
 			<div id="lead"><a href="#" class="close-fancy"></a>
 				<div class="table">
 					<div class="row">
@@ -70,7 +70,7 @@
 									</form>
 								</div>
 								<div class="modal-text">Мы не рассылаем спам и не ведем назойливых рассылок. <br>
-									Ваши данные никогда не попадут третим лицам. <a href="#linkprivacy" class="linkprivacy fancybox">Политика конфиденциальности</a>
+									Ваши данные никогда не попадут третим лицам. <a href="#privacy" class="linkprivacy fancybox">Политика конфиденциальности</a>
 									
 									
 								</div>
@@ -94,13 +94,23 @@
 					<div class="clearfix"></div>
 				</div>
 			</div>
+			<div id="privacy" class="block-5 block-9"><a href="#" class="close-fancy"></a>
+				<div class="wrap">
+					<div class="block-5-title h1 white h1-line"><b>Рыбас!</b></div>
+					<div class="block-5-text">Мы не только можем подобрать Вам лучший автомобиль, но и <b class="under">дистанционно «пробить» авто по базам, проверить ваш вариант</b>
+						или <b class="under">сопроводить Вас в МРЭО</b>.<br>
+						Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в <b class="under">нашей группе Вконтакте</b>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
 		</div>
 		<script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script><!-- import scripts -->
 		<script src="/assets/js/app.min.js"></script>
 		<script>
 			(function(){
 				var width = $('.block-9 .block-5-price').width();
-				width = ( width>300 && $(window).width()<=1023 ) ? 300 : width;
+				width = ( (width-60)>300 && $(window).width()<=1023 ) ? 300 : (width-60);
 				$(function(){
 					VK.Widgets.Group("vk_groups", {mode: 1, width: width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 97655577);
 				});

@@ -16,7 +16,7 @@ html
 		script.
 			(function(){
 				var width = $('.block-9 .block-5-price').width();
-				width = ( width>300 && $(window).width()<=1023 ) ? 300 : width;
+				width = ( (width-60)>300 && $(window).width()<=1023 ) ? 300 : (width-60);
 				$(function(){
 					VK.Widgets.Group("vk_groups", {mode: 1, width: width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 97655577);
 				});

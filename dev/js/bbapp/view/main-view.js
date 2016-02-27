@@ -25,7 +25,7 @@
 		 **/
 		initialize: function() {
 			var self = this;
-			this.imgSet().prallax().headerfix().fancy().masks();
+			this.imgSet().prallax().headerfix().fancy().masks().faders();
 			setTimeout(function(){
 				self.scroller();
 			}, 1000)
@@ -55,6 +55,32 @@
 					}
 				});
 			}
+		},
+
+		faders: function(){
+	
+
+
+
+			
+			$('.block-3-item-num span').each(function(){
+				(new CountUp($(this)[0], 0, $(this).text(), 0, 2, { useEasing : true,   separator : ' '} )).start();
+			})
+			$(window).scroll(function(){
+				
+				$('.scr-scr-scr-in-white-nike:not(.start-anim)').each(function(){
+					var scrollTop = $(window).scrollTop(),
+						wh = $(window).height(),
+					prallaxItem = $(this).addClass('start-anim');
+					if( (prallaxItem.offset().top - 10) < (scrollTop + wh) && (prallaxItem.offset().top + prallaxItem.height() ) > (scrollTop )  ){
+						prallaxItem.find('.h1').addClass('animated fadeIn')
+					}	
+				})
+
+			});
+
+
+			return this;
 		},
 
 		slidez: function(){
