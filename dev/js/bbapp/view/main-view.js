@@ -25,7 +25,9 @@
 		 **/
 		initialize: function() {
 			var self = this;
+
 			this.imgSet().prallax().headerfix().fancy().masks().faders();
+
 			setTimeout(function(){
 				self.scroller();
 			}, 1000)
@@ -60,25 +62,44 @@
 		faders: function(){
 	
 
+			if($(window).width()>=1024){
+				var fn = function(){
+					$('.scr-scr-scr-in-white-nike:not(.start-anim)').each(function(){
+						var scrollTop = $(window).scrollTop(),
+							wh = $(window).height(),
+							prallaxItem = $(this)
+
+						if( (prallaxItem.offset().top - wh/2 - 300) <= ( scrollTop  )    ){
+							console.log('asd')
+							if( $(this).hasClass('block-3')){
+								$('.block-3-item-num span ').each(function(){
+										(new CountUp($(this)[0], 0, $(this).text(), 0, 2, { useEasing : true,   separator : ' '} )).start();
+								})
+							}else if( $(this).hasClass('block-5')){
+								(new CountUp($('.block-5-price-big span')[0], 0, $('.block-5-price-big span').text(), 0, 2, { useEasing : true,   separator : ''} )).start();
+							}
+							prallaxItem.addClass('start-anim').find('.h1,  [class*=-title]').addClass('animated fadeInDown')
+							prallaxItem.addClass('start-anim').find('p, .dtext').addClass('animated fadeInRight')
+							prallaxItem.addClass('start-anim').find('[class*=-text]').addClass('animated fadeInLeft')
 
 
-			
-			$('.block-3-item-num span').each(function(){
-				(new CountUp($(this)[0], 0, $(this).text(), 0, 2, { useEasing : true,   separator : ' '} )).start();
-			})
-			$(window).scroll(function(){
+						}	
+					})
+				}
 				
-				$('.scr-scr-scr-in-white-nike:not(.start-anim)').each(function(){
-					var scrollTop = $(window).scrollTop(),
-						wh = $(window).height(),
-					prallaxItem = $(this).addClass('start-anim');
-					if( (prallaxItem.offset().top - 10) < (scrollTop + wh) && (prallaxItem.offset().top + prallaxItem.height() ) > (scrollTop )  ){
-						prallaxItem.find('.h1').addClass('animated fadeIn')
-					}	
-				})
+				
+				fn()
+				$(window).scroll(function(){
+					
+					fn()
 
-			});
+				});
 
+			}else{
+					$('.scr-scr-scr-in-white-nike').addClass('start-anim').find('.h1,  [class*=-title]').addClass('animated fadeInDown')
+					$('.scr-scr-scr-in-white-nike').addClass('start-anim').find('p, .dtext').addClass('animated fadeInRight')
+					$('.scr-scr-scr-in-white-nike').addClass('start-anim').find('[class*=-text]').addClass('animated fadeInLeft')
+				};
 
 			return this;
 		},

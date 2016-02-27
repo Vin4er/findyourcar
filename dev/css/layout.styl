@@ -16,6 +16,10 @@
 
 
 @import  "./layout/inputs.styl"
+
+.scr-scr-scr-in-white-nike .h1, .scr-scr-scr-in-white-nike [class*=-text], .scr-scr-scr-in-white-nike  [class*=-title], .scr-scr-scr-in-white-nike p, .scr-scr-scr-in-white-nike .dtext
+	opacity: 0
+
 .block-5-price-big
 	width: 100%
 	overflow: hidden
@@ -640,10 +644,10 @@
 					margin-bottom: -61px
 					margin-left: -50px
 			@media (max-width: 767px)
-				font-size: 88px
+				font-size: 78px
 				img
-					width: 127px;
-					margin-bottom: -57px;
+					width: 112px;
+					margin-bottom: -51px;
 					margin-left: -46px;
 		&-text
 			padding-top: 14px
@@ -792,6 +796,9 @@
 		bottom 28px
 		left 30px
 		right 30px
+		@media (max-width: 1024px)
+			left 45px
+			right 40px
 		.table
 			width 100%
 		@media (min-width: 1024px)
@@ -882,6 +889,8 @@
 				transition .3s
 				background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #000000);
 				padding 30px
+				@media (max-width: 1024px)
+					padding 30px 45px
 			&:hover
 				@media (min-width: 1024px)
 					.block-7-top
@@ -1089,3 +1098,17 @@
 		a
 			@media (max-width: 1024px) 
 				margin: 40px auto 20px
+	@media (min-width: 1024px) 
+		.h1
+			width: 50%
+		&.slt
+			.block-5-price-big
+				position: relative
+				top: -80px
+	@media (min-width: 1400px) 
+		.h1
+			width: 50%
+		&.slt
+			.block-5-price-big
+				position: relative
+				top: -100px
