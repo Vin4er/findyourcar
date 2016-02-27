@@ -4,9 +4,23 @@ html
 	head
 		include head.jade
 	body
-		include header.jade
 		.page#page
+			include header.jade
 			section#content.content
 				block content
 		include footer.jade
+		include modals.jade
+
+		script(src='http://vk.com/js/api/openapi.js', type="text/javascript")
 		include scripts
+		script.
+			(function(){
+				var width = $('.block-9 .block-5-price').width();
+				width = ( width>300 && $(window).width()<=1023 ) ? 300 : width;
+				$(function(){
+					VK.Widgets.Group("vk_groups", {mode: 1, width: width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 97655577);
+				});
+				$(function(){
+					VK.Widgets.Group("vk_groups2", {mode: 1, width: width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'}, 97655577);
+				});
+			})();

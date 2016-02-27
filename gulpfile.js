@@ -5,8 +5,11 @@ var gulp = require('gulp'),
 	jade = require('gulp-jade'),
 	jadeOrig = require('jade'),
 	stylus = require('gulp-stylus'),
-	concat = require('gulp-concat');
+	concat = require('gulp-concat'),
 
+	imagemin = require('gulp-imagemin'),
+	uglify = require('gulp-uglify'), // минификатор
+	csso = require('gulp-csso');
 
 // Пути к файлам
 path = {
@@ -57,22 +60,31 @@ gulp.task('webserver', function() {
 // Собираем JS
 gulp.task('js', function() {
 
-	gulp.src(["./dev/js/helper-page.js"])
-		.pipe(concat('default_libs_script.min.js'))
-		// .pipe(uglify())
-		.pipe(gulp.dest('./public/assets/js'));
 
 
 	gulp.src([
+			"./dev/js/lib/jquery/jquery.min.js",
+
+			"./dev/js/helper-page.js",
+
 			"./dev/js/lib/backbone/underscore.js",
 			"./dev/js/lib/backbone/backbone.js",
+
+			"./dev/js/lib/inputmask/inputmask.js", 
+
+			"./dev/js/lib/swiper/swiper.jquery.js",
+			"./dev/js/lib/fancybox/jquery.fancybox.js",
+
 			"./dev/js/bbapp/init-helpers.js",
+
 			"./dev/js/bbapp/routes/main-router.js",
 			"./dev/js/bbapp/models/main-model.js",
 			"./dev/js/bbapp/view/main-view.js",
+
 			"./dev/js/bbapp/init-bbapp.js",
 		])
-		.pipe(concat('bbapp.min.js'))
+		.pipe(concat('app.min.js'))
+		.pipe(uglify())
 		.pipe(gulp.dest('./public/assets/js'));
 
 });
@@ -86,6 +98,7 @@ gulp.task('stylus', function() {
 		.pipe(stylus())
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ie 10', 'ie 11', 'ie 12', 'opera 12.1', 'ios 6', 'android 4'))
 		.pipe(concat(path.css.distribution)) // file views
+		.pipe(csso())
 		.pipe(gulp.dest(path.css.destination)); // out place
 });
 
@@ -104,25 +117,29 @@ gulp.task('jade', function() {
 		.pipe(gulp.dest(path.html.destination));
 });
 
-gulp.task('fonts', function() { });
-// стпрайты
-gulp.task('sprite', function() { });
+
+gulp.task('fonts', function() {
+    // gulp.src(['./dev/fonts/**/*', './dev/fonts/*'])
+    //     .pipe(gulp.dest('./public/assets/fonts'));
+});
+
 //Копируем изображения и сразу их обновляем
 gulp.task('img', function() {
-	gulp.src(path.img.source).pipe(gulp.dest(path.img.destination)); // out place
+	gulp.src(path.img.source)
+		.pipe(imagemin())
+		.pipe(gulp.dest(path.img.destination));
 });
 
 
 // Watch Task
 gulp.task('watch', function() {
 	livereload.listen();
-	gulp.watch(path.sprite.watch, ['sprite']).on('change', livereload.changed);
 	gulp.watch(path.img.watch, ['img']).on('change', livereload.changed);
 	gulp.watch(path.html.watch, ['jade']).on('change', livereload.changed);
 	gulp.watch(path.js.watch, ['js']).on('change', livereload.changed);
 	gulp.watch(path.css.watch, ['stylus']).on('change', livereload.changed);
 });
 
-gulp.task("build", ['sprite', 'img', 'jade', 'fonts', 'js', 'stylus', 'webserver']);
+gulp.task("build", [ 'img', 'jade', 'fonts', 'js', 'stylus', 'webserver']);
 // Default Task
 gulp.task("default", ['build', 'watch']);

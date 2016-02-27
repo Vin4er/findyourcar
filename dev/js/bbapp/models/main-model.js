@@ -1,22 +1,9 @@
 "use strict";
-
 (function() {
-
 	app.Model.Main = Backbone.Model.extend({
-
-		defaults: {
-			array: []
-		},
-
+		defaults: {},
 		initialize: function() {
-
-			// генерируем, и сразу начниаем сортировку
-
 			return this;
 		},
-
-
-
 	});
-
 })();

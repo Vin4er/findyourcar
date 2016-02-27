@@ -6,17 +6,14 @@ extends /layouts/layout.jade
 //content start
 block content
 	#landos
-		.block-1
-			.prallax
-				img(src="",
-					data-imgset="true",
+		.block-1(data-id="index")
+			.prallax(data-imgset="true",
 					data-path="/assets/img/",
 					data-1024-1440="Desktop (1024-1440)/1",
 					data-1440="Desktop HD (1440+)/1",
 					data-768-1024="Tablet (768-1024)/1",
 					data-320-768="Mobile (320-768)/1",
-					data-ext="png"
-					, alt="")
+					data-ext="png")
 			.prallax-content
 				.wrap
 					.table
@@ -27,19 +24,18 @@ block content
 									Подберем автомобиль исходя из пожеланий и проверим 
 									состояние с технической и юридической стороны. #[br]
 									Покажем только лучший вариант и поможем с оформлением.
-								a.btn.btn-red(href="#") Закажите профессиональный подбор авто
+								a.btn.btn-red.fancybox(href="#lead") Закажите профессиональный подбор авто
 								a.info-control
 									span Листайте вниз
-									img(width=24 height=42 src="/assets/img/icons/ScrollDown.svg")
-		.block-2
+									img(width=24, height=42, src="/assets/img/icons/ScrollDown.svg", alt="")
+		.block-2(data-id="КакМыРаботаем")
 			.wrap
 				.h1 Как все устроено
 				.table.w100.block-2-items
 					.row
 						.cell.w25.block-2-item
 							.ib
-								.block-2-item-img
-									img(src="/assets/img/icons/1-1.svg")
+								.block-2-item-img(style="background-image: url(/assets/img/icons/1-1.svg)")
 								.block-2-item-about
 									.block-2-item-title Идеядеядеядеядея  дея дея дея
 									.block-2-item-text.
@@ -47,8 +43,7 @@ block content
 										к автомобилю и бюджет.
 						.cell.w25.block-2-item
 							.ib
-								.block-2-item-img
-									img(src="/assets/img/icons/1-2.svg")
+								.block-2-item-img(style="background-image: url(/assets/img/icons/1-2.svg)")
 								.block-2-item-about
 									.block-2-item-title Поиск
 									.block-2-item-text.
@@ -57,8 +52,7 @@ block content
 										Ищем подходящие варианты.
 						.cell.w25.block-2-item
 							.ib
-								.block-2-item-img
-									img(src="/assets/img/icons/1-3.svg")
+								.block-2-item-img(style="background-image: url(/assets/img/icons/1-3.svg)")
 								.block-2-item-about
 									.block-2-item-title Диагностика
 									.block-2-item-text.
@@ -66,25 +60,21 @@ block content
 										и проверяем автомобили нашим оборудованием. Тщательно ищем скрытые недостатки и проверяем документы.
 						.cell.w25.block-2-item
 							.ib
-								.block-2-item-img
-									img(src="/assets/img/icons/1-4.svg")
+								.block-2-item-img(style="background-image: url(/assets/img/icons/1-4.svg)")
 								.block-2-item-about
 									.block-2-item-title Покупка
 									.block-2-item-text.
 										Сопровождаем вас на место осмотра нашего варианта, делаем контрольную проверку. Торгуемся и составляем ДКП.
 										Поздравляем вас с покупкой!
 
-		.block-3
-			.prallax
-				img(src="",
-					data-imgset="true",
+		.block-3(data-id="Особенности")
+			.prallax(data-imgset="true",
 					data-path="/assets/img/",
 					data-1024-1440="Desktop (1024-1440)/2",
 					data-1440="Desktop HD (1440+)/2",
 					data-768-1024="Tablet (768-1024)/2",
 					data-320-768="Mobile (320-768)/2",
-					data-ext="png"
-					, alt="")
+					data-ext="png")
 			.prallax-content
 				.wrap
 					.h1.h1-line.white Каждый автомобиль мы выбираем как себе
@@ -113,16 +103,14 @@ block content
 				.block-4-items
 					.block-4-item
 						.ib
-							.block-4-item-img
-								img(src="/assets/img/icons/2-1.svg")
+							.block-4-item-img(style="background-image: url(/assets/img/icons/2-1.svg)")
 							.block-4-item-about
 								.block-4-item-title Исправные системы безопасности
 								.block-4-item-text.dtext.
 									Часто, после крупных ДТП владельцы авто экономят на ремонте систем безопасности. Отключают лампочки ABS и ESP, а подушки безопасности заменяют на обманки. Такие авто могут не защитить вас в нужный момент, зато мы можем защитить вас от таких авто.
 					.block-4-item
 						.ib
-							.block-4-item-img
-								img(src="/assets/img/icons/2-2.svg")
+							.block-4-item-img(style="background-image: url(/assets/img/icons/2-2.svg)")
 							.block-4-item-about
 								.block-4-item-title Оригинальный пробег
 								.block-4-item-text.dtext.
@@ -131,8 +119,7 @@ block content
 									и подберем автомобиль с реальным пробегом.Сейчас на любом авторынке можно изменить показания одометра 
 					.block-4-item
 						.ib
-							.block-4-item-img
-								img(src="/assets/img/icons/2-3.svg")
+							.block-4-item-img(style="background-image: url(/assets/img/icons/2-3.svg)")
 							.block-4-item-about
 								.block-4-item-title Правильная геометрия кузова
 								.block-4-item-text.dtext.
@@ -142,57 +129,53 @@ block content
 									ему выдан. Такие авто мы не рассматриваем к покупке.
 					.block-4-item
 						.ib
-							.block-4-item-img
-								img(src="/assets/img/icons/2-4.svg")
+							.block-4-item-img(style="background-image: url(/assets/img/icons/2-4.svg)")
 							.block-4-item-about
 								.block-4-item-title Не требующие крупных вложений
 								.block-4-item-text.dtext.
 									Некоторые продавцы маскируют неисправности, которые
 									приведут к крупной поломке и перекладывают его ремонт 
 									на следующего владельца. Мы рассматриваем только авто 
-		.block-5
-			.prallax
-				img(src="",
-					data-imgset="true",
+		.block-5(data-id="Стоимость")
+			.prallax(data-imgset="true",
 					data-path="/assets/img/",
 					data-1024-1440="Desktop (1024-1440)/3",
 					data-1440="Desktop HD (1440+)/3",
 					data-768-1024="Tablet (768-1024)/3",
 					data-320-768="Mobile (320-768)/3",
-					data-ext="png"
-					, alt="")
+					data-ext="png" )
 			.prallax-content
 				.wrap
 					.block-5-title.h1.white.h1-line Сэкономьте свое время и нервы с помощью FindYourCar!
 					.block-5-price
 						.block-5-price-big.
 							7000
-							#[img.svg-rouble(src="/assets/img/icons/Rouble.svg")]
+							#[img.svg-rouble(src="/assets/img/icons/Rouble.svg", alt="")]
 						.block-5-price-text.
 							+25% от торга. Без предоплаты.#[br]
 							#[i.white.italic в 90% случаев - бесплатно.]
 						.block-5-price-btn
-							a.btn.btn-red(href="#") Закажите подбор авто прямо сейчас!
+							a.btn.btn-red.fancybox(href="#lead") Закажите подбор авто прямо сейчас!
 					.block-5-text.
 						Мы берем 7000 рублей и 25% от сторгованной суммы.#[br]
 						За эти деньги мы полностью подбираем для вас автомобиль.
 						#[br]#[i.white.italic Никаких предоплат] — услугу вы оплачиваете только  при подписании ДКП.#[br]
 						Благодаря профессиональному торгу, #[i.white.italic в 90% случаев услуги оказываются бесплатными.]
+					.clearfix
 
-		.block-6
+		.block-6(data-id="СпециалистНаВыезд")
 			.wrap
 				.block-6-title.h1.h1-line Уже нашли автомобиль?
 
 				.block-6-img
-					img(src="",
+					img(src="#", alt="",
 					data-imgset="true",
 					data-path="/assets/img/",
 					data-1024-1440="Desktop (1024-1440)/MacBook",
 					data-1440="Desktop HD (1440+)/MacBook",
 					data-768-1024="Tablet (768-1024)/MacBook",
 					data-320-768="Mobile (320-768)/MacBook",
-					data-ext="png"
-					, alt="")
+					data-ext="png" )
 				.block-6-text
 					p.
 						Не верьте продавцу на слово. Мы приедем и проверим этот автомобиль нашим оборудованием. Проверим кузов, электрику и электронику, системы безопасности 
@@ -202,40 +185,39 @@ block content
 						Такая проверка будет стоить всего 1500 рублей.
 						Кроме того, #[i.italic всего за 1000 рублей] можно заказать юридическую проверку чистоты удаленно!
 				.block-6-btn
-					a.btn.btn-red(href="#") Хочу получить помощь эксперта
+					a.btn.btn-red.fancybox(href="#lead") Хочу получить помощь эксперта
 
-
-		.block-7
+		.block-7(data-id="Отзывы")
 			.swiper-container
 				.swiper-wrapper
 					- var items = ["1", "2", "3", "4", "5", "6"]
 					- each item in items
-						.swiper-slide
-							.block-7-ava
-								.block-7-img
-									img(src="")
-								.block-7-username Дмитрий Головачев
-							.block-7-text.
-								Александр, спасибо Вам за помощь в подборе авто. Хороший сервис, все оперативно и без лишних движений. Удачных Вам клиентов и хорошего развития. Благодарю.
-							.block-7-carinfo
-								.table
-									.row
-										.cell.block-7-carinfo-text
-											.block-7-carinfo-text-title #[b Pegeout Boxer]
-											.block-7-carinfo-text-text 2008 г., 85 т.км, 2.2, механика Выгода — 30 000Р
-										.cell.block-7-carinfo-price  #[b5444 Р]
-
+						.swiper-slide(style="background-image: url(https://pp.vk.me/c308528/v308528930/95d7/_HGQ9NqEYiM.jpg)")
+							.grad
+								.block-7-top
+									.block-7-ava
+										.block-7-img(style="background-image: url(https://pp.vk.me/c628517/v628517930/43b5c/NLZlq2IwZjY.jpg)")
+										.block-7-username Дмитрий Головачев
+									.block-7-text.
+										Александр, спасибо Вам за помощь в подборе авто. Хороший сервис, все оперативно и без лишних движений. Удачных Вам клиентов и хорошего развития. Благодарю.
+								.block-7-carinfo
+									.table
+										.row
+											.cell.block-7-carinfo-text
+												.block-7-carinfo-text-title #[b Pegeout Boxer]
+											.cell.block-7-carinfo-price  #[b 5444 Р]
+									.block-7-carinfo-text-text 2008 г., 85 т.км, 2.2, механика Выгода — 30 000Р
 			// Add Pagination
 			.wrap
 				.swiper-button-next.swiper-button-white
 				.swiper-button-prev.swiper-button-white
 
-		.block-8
-			.pralax
+		.block-5.block-9(style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), #000000);")
 			.wrap
-				.h1.white.block-8-title Не тратьте свое время на покупку авто.
-				.block-8-btns
-					a.btn.btn-red(href="#") Хочу поговорить с экспертом
-					a.btn.btn-blue(href="#") Наша группа Вконтакте
-					div.ib.w100
-						a.link.white.ib(href="#") #[span.white Политика конфиденциальности]
+				.block-5-title.h1.white.h1-line Не тратьте свое время на покупку авто.!
+				.block-5-price
+					.block-5-price-big
+						#vk_groups(style="")
+				.block-5-text
+					a.btn.btn-red.fancybox(href="#lead", style="max-width: 300px") Хочу поговорить с экспертом
+				.clearfix

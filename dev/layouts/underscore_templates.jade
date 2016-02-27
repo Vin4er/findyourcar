@@ -1,9 +1,0 @@
-script(type='text/template', id='flex-item')
-	.flex-item(style!="order:<%=i %>") <%=text %>
-
-script(type='text/template', id='flex-info')
-	.flex-info-items
-		|<%=text %>
-		|<% if(i!==false){ %>
-		|#[b <%=i  %>] и #[b <%=j %>]
-		|<% }%>

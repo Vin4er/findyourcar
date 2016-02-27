@@ -1,0 +1,38 @@
+div(style="display: none")
+	a.fancybox(href="#comeback")
+	#lead
+		a.close-fancy(href="#")
+		.table
+			.row
+				.cell
+					.innercell
+						.modal-title Мы перезвоним вам и обговорим все детали
+						.modal-form
+							form(action="?sandlead.php")
+								.table
+									.row
+										.cell
+											label.modal-input
+												.modal-input-title Оставьте свой телефон…
+												.modal-input-field
+													input.phones(type="text", required, placeholder="+7 (999) 999 9999")
+										.cell.btns
+											.modal-input
+												button.btn.btn-red Позвоните мне
+						.modal-text.
+							Мы не рассылаем спам и не ведем назойливых рассылок. #[br]
+							Ваши данные никогда не попадут третим лицам. #[a.linkprivacy.fancybox(href="#linkprivacy") Политика конфиденциальности]
+
+
+	#comeback.block-5.block-9
+		a.close-fancy(href="#")
+		.wrap
+			.block-5-title.h1.white.h1-line #[b Постойте!]
+			.block-5-price
+				.block-5-price-big
+					#vk_groups2(style="")
+			.block-5-text.
+				Мы не только можем подобрать Вам лучший автомобиль, но и #[b.under дистанционно «пробить» авто по базам, проверить ваш вариант]
+				или #[b.under сопроводить Вас в МРЭО].#[br]
+				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в #[b.under нашей группе Вконтакте]
+			.clearfix
