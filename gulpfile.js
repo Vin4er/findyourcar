@@ -49,11 +49,11 @@ path = {
 gulp.task('webserver', function() {
 	gulp.src('public')
 		.pipe(webserver({
-			host: 'localhost', // Если нужен сервер в сети ставьте 0.0.0.0 localhost
-			// host: '192.168.120.217', // Если нужен сервер в сети ставьте 0.0.0.0 localhost
+			host: '192.168.0.15', // Если нужен сервер в сети ставьте 0.0.0.0 localhost
+			// host: 'localhost', // Если нужен сервер в сети ставьте 0.0.0.0 localhost
 			port: 3003,
-			livereload: true,
-			//open: "/index.html"
+			// livereload: true,
+			// open: "/index.html"
 		}));
 });
 
@@ -73,6 +73,8 @@ gulp.task('js', function() {
 			"./dev/js/lib/inputmask/inputmask.js", 
 
 			"./dev/js/lib/swiper/swiper.jquery.js",
+			"./dev/js/lib/ouibounce/ouibounce.js",
+			
 			"./dev/js/lib/fancybox/jquery.fancybox.js",
 
 			"./dev/js/bbapp/init-helpers.js",

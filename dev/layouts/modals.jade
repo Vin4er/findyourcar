@@ -1,6 +1,30 @@
 div(style="display: none")
 	a.fancybox(href="#comeback")
 	a.fancybox(href="#privacy")
+	a#thx-modal.fancybox(href="#thx")
+	
+	script.
+		(function(){
+			window.onload = function(){
+				$(document).on('submit','#lead-from', function(e){
+					e.preventDefault();
+					$.ajax({
+						method: 'post',
+						url: this.action,
+						data: {tel: $(this).find('[type=tel]').val()},
+					}).done(function(){
+						$('#thx-modal').click();
+						setTimeout(function(){
+							$.fancybox.close();
+						}, 3000);
+					})
+				});
+			}
+		})();
+	
+
+
+
 	#lead
 		a.close-fancy(href="#")
 		.table
@@ -9,14 +33,14 @@ div(style="display: none")
 					.innercell
 						.modal-title Мы перезвоним вам и обговорим все детали
 						.modal-form
-							form(action="?sandlead.php")
+							form#lead-from(action="?sandlead.php")
 								.table
 									.row
 										.cell
 											label.modal-input
 												.modal-input-title Оставьте свой телефон…
 												.modal-input-field
-													input.phones(type="text", required, placeholder="+7 (999) 999 9999")
+													input.phones(type="tel", required, placeholder="+7 (999) 999 9999")
 										.cell.btns
 											.modal-input
 												button.btn.btn-red Позвоните мне
@@ -29,12 +53,14 @@ div(style="display: none")
 		.wrap
 			.block-5-title.h1.white.h1-line #[b Постойте!]
 			.block-5-price
-				.block-5-price-big
+				.block-5-price-big(style=" padding-right: 10px;")
 					#vk_groups2(style="")
 			.block-5-text.
-				Мы не только можем подобрать Вам лучший автомобиль, но и #[b.under дистанционно «пробить» авто по базам, проверить ваш вариант]
-				или #[b.under сопроводить Вас в МРЭО].#[br]
-				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в #[b.under нашей группе Вконтакте]
+				Мы не только можем подобрать Вам лучший автомобиль, но и #[a(target="_blank", href="https://vk.com/market-97655577?w=product-97655577_263309").under дистанционно «пробить» авто по базам], #[a(target="_blank", href="https://vk.com/market-97655577?w=product-97655577_222454").under проверить ваш вариант]
+				или #[a(target="_blank", href="https://vk.com/market-97655577?w=product-97655577_263284").under сопроводить Вас в МРЭО].#[br]
+				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в #[a(target="_blank", href="https://vk.com/findyourcar").under нашей группе Вконтакте]
+			div(style="padding-top: 40px; padding-left: 49px; padding-right: 10px;")
+				a.btn.btn-red.fancybox(href="#lead") Закажите профессиональный подбор авто
 			.clearfix
 
 	#privacy.block-5.block-9
@@ -42,7 +68,17 @@ div(style="display: none")
 		.wrap
 			.block-5-title.h1.white.h1-line #[b Рыбас!]
 			.block-5-text.
-				Мы не только можем подобрать Вам лучший автомобиль, но и #[b.under дистанционно «пробить» авто по базам, проверить ваш вариант]
-				или #[b.under сопроводить Вас в МРЭО].#[br]
-				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в #[b.under нашей группе Вконтакте]
+				Мы не только можем подобрать Вам лучший автомобиль, но и #[a(target="_blank", href="https://vk.com/market-97655577?w=product-97655577_263309").under дистанционно «пробить» авто по базам, проверить ваш вариант]
+				или #[a(target="_blank", href="https://vk.com/market-97655577?w=product-97655577_263284").under сопроводить Вас в МРЭО].#[br]
+				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в #[a(target="_blank", href="https://vk.com/findyourcar").under нашей группе Вконтакте]
+			.clearfix
+
+	#thx.block-5.block-9
+		a.close-fancy(href="#")
+		.wrap
+			.block-5-title.h1.white.h1-line #[b Спсиос!]
+			.block-5-text.
+				Мы не только можем подобрать Вам лучший автомобиль, но и #[a(target="_blank", href="").under дистанционно «пробить» авто по базам, проверить ваш вариант]
+				или #[a(target="_blank", href="").under сопроводить Вас в МРЭО].#[br]
+				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в #[a(target="_blank", href="").under нашей группе Вконтакте]
 			.clearfix

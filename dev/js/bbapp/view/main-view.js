@@ -45,24 +45,22 @@
 			});
 
 			// ОБРАБОТЧИК  покидания окна мышкой
-			if(  $(window).width() > 1024 ){
+			
 
-				$(document).on('mouseenter', function(event) {
-					self.activePageHover = true;
-				});
-				$(document).on('mouseleave', function(event) {
-					if( !self.activePage && self.activePageHover){
-						self.activePage = true;
+			var _ouibounce = ouibounce(document.getElementById('comeback'), {
+		        aggressive: true,
+		        timer: 0,
+		        callback: function() { 
+		        	if(  $(window).width() > 1024 ){
 						$('[href="#comeback"]').click();
 					}
-				});
-			}
+		        }
+		      });
 		},
 
 		faders: function(){
-	
 
-			if($(window).width()>=1024){
+			if($(window).width()>=980){
 				var fn = function(){
 					$('.scr-scr-scr-in-white-nike:not(.start-anim)').each(function(){
 						var scrollTop = $(window).scrollTop(),
@@ -70,36 +68,26 @@
 							prallaxItem = $(this)
 
 						if( (prallaxItem.offset().top - wh/2 - 300) <= ( scrollTop  )    ){
-							console.log('asd')
+
 							if( $(this).hasClass('block-3')){
 								$('.block-3-item-num span ').each(function(){
-										(new CountUp($(this)[0], 0, $(this).text(), 0, 2, { useEasing : true,   separator : ' '} )).start();
+									(new CountUp($(this)[0], 0, $(this).text(), 0, 2, { useEasing : true,   separator : ' '} )).start();
 								})
-							}else if( $(this).hasClass('block-5')){
-								(new CountUp($('.block-5-price-big span')[0], 0, $('.block-5-price-big span').text(), 0, 2, { useEasing : true,   separator : ''} )).start();
 							}
-							prallaxItem.addClass('start-anim').find('.h1,  [class*=-title]').addClass('animated fadeInDown')
-							prallaxItem.addClass('start-anim').find('p, .dtext').addClass('animated fadeInRight')
-							prallaxItem.addClass('start-anim').find('[class*=-text]').addClass('animated fadeInLeft')
 
+							prallaxItem.addClass('start-anim').find('.h1,  [class*=-title], p, .dtext, [class*=-text]').addClass('animated fadeIn')
 
 						}	
 					})
 				}
-				
-				
-				fn()
+				fn();
 				$(window).scroll(function(){
-					
-					fn()
-
+					fn();
 				});
-
 			}else{
-					$('.scr-scr-scr-in-white-nike').addClass('start-anim').find('.h1,  [class*=-title]').addClass('animated fadeInDown')
-					$('.scr-scr-scr-in-white-nike').addClass('start-anim').find('p, .dtext').addClass('animated fadeInRight')
-					$('.scr-scr-scr-in-white-nike').addClass('start-anim').find('[class*=-text]').addClass('animated fadeInLeft')
-				};
+				$('.scr-scr-scr-in-white-nike').addClass('start-anim').find('.h1,  [class*=-title], p, .dtext, [class*=-text]').addClass('animated fadeIn')
+					
+			};
 
 			return this;
 		},
@@ -107,13 +95,16 @@
 		slidez: function(){
 			var self = this,
 				fInit = function(){
-					var perView = $(window).width() >= 1440 ? 5: (  $(window).width() < 1024 ? (  $(window).width()< 768 ? 1: 3 ) : 3 );
+					var perView = $(window).width() >= 1440 ? 5: (  $(window).width() < 1024 ? (  $(window).width()< 768 ? 1: 2 ) : 4 );
 					
 					perView = (perView  == 5  && $('.swiper-slide').length < 5) ? $('.swiper-slide').length : ((perView == 3 && $('.swiper-slide').length < 3 ) ? $('.swiper-slide').length  : perView)
 
 					self.slidezItem = new Swiper('.swiper-container', {
 				        pagination: '.swiper-pagination',
 				        slidesPerView: perView,
+				        autoplay: 4000,
+   					 	centeredSlides: true,
+
 				        loop: true,
 						nextButton: '.swiper-button-next',
 						prevButton: '.swiper-button-prev',
@@ -121,6 +112,7 @@
 				};
 				
 			fInit();
+
 		    $(window).resize(function(){
 				if(self.slidezItem) {
 					self.slidezItem.destroy(true, false);
@@ -128,6 +120,10 @@
 					fInit();
 				}
 			});	
+
+			$(document).on('mouseleave mouseenter', '.block-7', function(e){
+				self.slidezItem[(e.type == 'mouseenter')? 'stopAutoplay' : 'startAutoplay' ]();
+			});
 		},
 
 		fancy: function(){
@@ -140,8 +136,17 @@
 		},
 
 		masks: function(){
-			var im = new Inputmask("+7 (999) 999 9999");
+			var im = new Inputmask({
+				mask: "+7 (999) 999 9999",
+				onincomplete: function(){
+					$('.phones').removeClass('complete').addClass('error')
+				},
+				oncomplete: function(){
+					$('.phones').removeClass('error').addClass('complete')
+				}
+			});
 			im.mask( $('.phones')[0] )
+
 			// im.mask('input.phones');
 			return this;
 		},
@@ -266,7 +271,7 @@
 					}
 				};
 			// если меньше 1024, то отключаем пралаксину
-			if(ww>=1024){
+			if(ww>=1000){
 				$('.prallax').each(function(){
 					var 
 						// текущий элемент

@@ -1,5 +1,28 @@
 
-<div style="display: none"><a href="#comeback" class="fancybox"></a><a href="#privacy" class="fancybox"></a>
+<div style="display: none"><a href="#comeback" class="fancybox"></a><a href="#privacy" class="fancybox"></a><a id="thx-modal" href="#thx" class="fancybox"></a>
+	<script>
+		(function(){
+			window.onload = function(){
+				$(document).on('submit','#lead-from', function(e){
+					e.preventDefault();
+					$.ajax({
+						method: 'post',
+						url: this.action,
+						data: {tel: $(this).find('[type=tel]').val()},
+					}).done(function(){
+						$('#thx-modal').click();
+						setTimeout(function(){
+							$.fancybox.close();
+						}, 3000);
+					})
+				});
+			}
+		})();
+		
+		
+		
+		
+	</script>
 	<div id="lead"><a href="#" class="close-fancy"></a>
 		<div class="table">
 			<div class="row">
@@ -7,14 +30,14 @@
 					<div class="innercell">
 						<div class="modal-title">Мы перезвоним вам и обговорим все детали</div>
 						<div class="modal-form">
-							<form action="?sandlead.php">
+							<form id="lead-from" action="?sandlead.php">
 								<div class="table">
 									<div class="row">
 										<div class="cell">
 											<label class="modal-input">
 												<div class="modal-input-title">Оставьте свой телефон…</div>
 												<div class="modal-input-field">
-													<input type="text" required="required" placeholder="+7 (999) 999 9999" class="phones"/>
+													<input type="tel" required="required" placeholder="+7 (999) 999 9999" class="phones"/>
 												</div>
 											</label>
 										</div>
@@ -40,23 +63,34 @@
 		<div class="wrap">
 			<div class="block-5-title h1 white h1-line"><b>Постойте!</b></div>
 			<div class="block-5-price">
-				<div class="block-5-price-big">
+				<div style=" padding-right: 10px;" class="block-5-price-big">
 					<div id="vk_groups2" style=""></div>
 				</div>
 			</div>
-			<div class="block-5-text">Мы не только можем подобрать Вам лучший автомобиль, но и <b class="under">дистанционно «пробить» авто по базам, проверить ваш вариант</b>
-				или <b class="under">сопроводить Вас в МРЭО</b>.<br/>
-				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в <b class="under">нашей группе Вконтакте</b>
+			<div class="block-5-text">Мы не только можем подобрать Вам лучший автомобиль, но и <a target="_blank" href="https://vk.com/market-97655577?w=product-97655577_263309" class="under">дистанционно «пробить» авто по базам</a>, <a target="_blank" href="https://vk.com/market-97655577?w=product-97655577_222454" class="under">проверить ваш вариант</a>
+				или <a target="_blank" href="https://vk.com/market-97655577?w=product-97655577_263284" class="under">сопроводить Вас в МРЭО</a>.<br/>
+				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в <a target="_blank" href="https://vk.com/findyourcar" class="under">нашей группе Вконтакте</a>
 			</div>
+			<div style="padding-top: 40px; padding-left: 49px; padding-right: 10px;"><a href="#lead" class="btn btn-red fancybox">Закажите профессиональный подбор авто</a></div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
 	<div id="privacy" class="block-5 block-9"><a href="#" class="close-fancy"></a>
 		<div class="wrap">
 			<div class="block-5-title h1 white h1-line"><b>Рыбас!</b></div>
-			<div class="block-5-text">Мы не только можем подобрать Вам лучший автомобиль, но и <b class="under">дистанционно «пробить» авто по базам, проверить ваш вариант</b>
-				или <b class="under">сопроводить Вас в МРЭО</b>.<br/>
-				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в <b class="under">нашей группе Вконтакте</b>
+			<div class="block-5-text">Мы не только можем подобрать Вам лучший автомобиль, но и <a target="_blank" href="https://vk.com/market-97655577?w=product-97655577_263309" class="under">дистанционно «пробить» авто по базам, проверить ваш вариант</a>
+				или <a target="_blank" href="https://vk.com/market-97655577?w=product-97655577_263284" class="under">сопроводить Вас в МРЭО</a>.<br/>
+				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в <a target="_blank" href="https://vk.com/findyourcar" class="under">нашей группе Вконтакте</a>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div id="thx" class="block-5 block-9"><a href="#" class="close-fancy"></a>
+		<div class="wrap">
+			<div class="block-5-title h1 white h1-line"><b>Спсиос!</b></div>
+			<div class="block-5-text">Мы не только можем подобрать Вам лучший автомобиль, но и <a target="_blank" href="" class="under">дистанционно «пробить» авто по базам, проверить ваш вариант</a>
+				или <a target="_blank" href="" class="under">сопроводить Вас в МРЭО</a>.<br/>
+				Так же, мы бесплатно консультируем всех желающих и публикуем рекомендации по покупке автомобиля с рук в <a target="_blank" href="" class="under">нашей группе Вконтакте</a>
 			</div>
 			<div class="clearfix"></div>
 		</div>
