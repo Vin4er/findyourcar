@@ -18,14 +18,13 @@ html
 
 		script.
 			(function(){
-				var width = $('.block-9 .block-5-price').width(),
-					_width = ( (width-60)>300 && $(window).width()<=1023 ) ? 300 : (width-60),
-					options1 = {mode: 1, width: _width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'},
-					options2 = {mode: 1, width: $(window).width()>768?_width-160:_width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'},
-					GROUP_ID = 97655577;
-
-				$(function(){
+				window.onload = function(){
+					var width = $('.block-9 .block-5-price').width(),
+						_width = ( (width-60)>300 && $(window).width()<=1023 ) ? 300 : (width-60),
+						options1 = {mode: 1, width: _width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'},
+						options2 = {mode: 1, width: $(window).width()>768?_width-160:_width, height: "200", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6'},
+						GROUP_ID = 97655577;
 					VK.Widgets.Group("vk_groups",  options1, GROUP_ID);
 					VK.Widgets.Group("vk_groups2", options2, GROUP_ID);
-				});
+				}
 			})();

@@ -125,6 +125,9 @@
 				if (typeof elems === "string") {
 					elems = document.getElementById(elems) || document.querySelectorAll(elems);
 				}
+				if( elems == undefined ){
+					return false;
+				}
 				elems = elems.nodeName ? [elems] : elems;
 				$.each(elems, function(ndx, el) {
 					var scopedOpts = $.extend(true, {}, that.opts);
