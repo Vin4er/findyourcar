@@ -198,7 +198,10 @@
 			var loc = window.location.hash.substr(1);
 			page = page ? page : (loc?loc:"index")
 		
-
+			if(window.location.hash.substr(1) == "lead"){
+					$('[href=#lead]:first').click()
+				return true
+			}
 			$('html, body').animate({"scrollTop" :  $("[data-id="+page+"]").offset().top - 60});
 			$("header .active").removeClass("active");
 			$("[href=#"+page+"]").addClass('active');
